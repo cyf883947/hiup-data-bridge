@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djhu.mapper.atses.TbDbPurchaserMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.djhu.entity.atses.TbDbPurchaser">
+        <id column="ID" property="id" />
+        <result column="NAME" property="name" />
+        <result column="TYPE" property="type" />
+        <result column="CREATETIME" property="createtime" />
+        <result column="UPDATETIME" property="updatetime" />
+        <result column="STATUS" property="status" />
+        <result column="CUSTOM0" property="custom0" />
+        <result column="CUSTOM1" property="custom1" />
+        <result column="CUSTOM2" property="custom2" />
+    </resultMap>
+
+</mapper>

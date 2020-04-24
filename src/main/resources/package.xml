@@ -1,0 +1,77 @@
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0
+          http://maven.apache.org/xsd/assembly-2.0.0.xsd">
+    <id>dist</id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>true</includeBaseDirectory>
+
+    <fileSets>
+        <fileSet>
+            <directory>target/ext</directory>
+            <outputDirectory>ext</outputDirectory>
+            <fileMode>0755</fileMode>
+            <directoryMode>0755</directoryMode>
+        </fileSet>
+        <fileSet>
+            <directory>target/dist/jsw/${artifactId}/bin</directory>
+            <outputDirectory>bin</outputDirectory>
+            <!-- Set executable permissions -->
+            <fileMode>0755</fileMode>
+            <directoryMode>0755</directoryMode>
+        </fileSet>
+        <fileSet>
+            <directory>target/dist/jsw/${artifactId}/config/tools</directory>
+            <outputDirectory>bin</outputDirectory>
+            <fileMode>0755</fileMode>
+            <directoryMode>0755</directoryMode>
+            <includes>
+                <include>**.sh</include>
+                <include>**.bat</include>
+            </includes>
+        </fileSet>
+        <fileSet>
+            <directory>target/dist/jsw/${artifactId}/config</directory>
+            <outputDirectory>config</outputDirectory>
+            <!-- The import rules here recommend consistency with exclusionary rules in the pom.xml file -->
+            <includes>
+                <!-- Custom configuration -->
+                <include>*.yml</include>
+                <include>*.xml</include>
+                <include>*.md</include>
+                <include>*.properties</include>
+                <include>static/**</include>
+                <!-- Must be configured -->
+                <include>*.conf</include>
+                <include>*.json</include>
+                <include>*.key</include>
+            </includes>
+            <excludes>
+                <!-- Must be configured -->
+                <exclude>tools/**</exclude>
+            </excludes>
+            <fileMode>0644</fileMode>
+            <directoryMode>0744</directoryMode>
+        </fileSet>
+        <fileSet>
+            <directory>target/dist/jsw/${artifactId}/lib</directory>
+            <outputDirectory>lib</outputDirectory>
+            <fileMode>0644</fileMode>
+            <directoryMode>0744</directoryMode>
+        </fileSet>
+        <fileSet>
+            <directory>target/dist/jsw/${artifactId}/logs</directory>
+            <outputDirectory>logs</outputDirectory>
+            <fileMode>0644</fileMode>
+            <directoryMode>0744</directoryMode>
+        </fileSet>
+        <fileSet>
+            <directory>target/dist/jsw/${artifactId}/temp</directory>
+            <outputDirectory>temp</outputDirectory>
+            <fileMode>0644</fileMode>
+            <directoryMode>0744</directoryMode>
+        </fileSet>
+    </fileSets>
+</assembly>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.djhu.mapper.atses.TbPatientuniqueidBackupsMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.djhu.entity.atses.TbPatientuniqueidBackups">
+        <result column="ID" property="id" />
+        <result column="PATIENT_UNIQUE_ID" property="patientUniqueId" />
+        <result column="DB_ID" property="dbId" />
+        <result column="CREATE_TYPE" property="createType" />
+        <result column="HIS_ID" property="hisId" />
+        <result column="ID_NO" property="idNo" />
+        <result column="REDIS_KEY" property="redisKey" />
+        <result column="REDIS_VALUE" property="redisValue" />
+        <result column="REDIS_INFO_KEY" property="redisInfoKey" />
+        <result column="REDIS_INFO_VALUE" property="redisInfoValue" />
+        <result column="CREATE_TIME" property="createTime" />
+        <result column="UPDATE_TIME" property="updateTime" />
+        <result column="STATUS" property="status" />
+        <result column="CUSTOM0" property="custom0" />
+        <result column="CUSTOM1" property="custom1" />
+        <result column="CUSTOM2" property="custom2" />
+    </resultMap>
+
+</mapper>

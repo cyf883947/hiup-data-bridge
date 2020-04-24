@@ -1,0 +1,1068 @@
+2020-04-24 17:01:49.961 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 28436 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:01:50.005 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:01:50.153 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:01:50 CST 2020]; root of context hierarchy
+2020-04-24 17:01:50.426 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:01:51.648 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6cac5fdf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:01:52.482 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:01:52.499 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:01:52.503 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:01:52.644 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:01:52.644 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2492 ms
+2020-04-24 17:01:52.972 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:01:52.979 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:01:52.980 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:01:52.981 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:01:52.981 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:01:56.387 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:01:56.766 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:01:57.679 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:01:50 CST 2020]; root of context hierarchy
+2020-04-24 17:01:57.826 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:01:57.829 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:01:57.830 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:01:57.935 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:01:57.936 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:01:57.965 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:01:58.017 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:01:58.835 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:01:58.837 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:01:58.837 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:01:58.845 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:01:58.846 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:01:58.859 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:01:58.871 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:01:58.872 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:01:58.890 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:01:58.895 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 9.345 seconds (JVM running for 10.923)
+2020-04-24 17:04:57.440 [Thread-22] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:01:50 CST 2020]; root of context hierarchy
+2020-04-24 17:04:57.443 [Thread-22] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:04:57.444 [Thread-22] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:04:57.462 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:04:57.466 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:05:06.363 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 1616 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:05:06.366 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:05:06.515 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:05:06 CST 2020]; root of context hierarchy
+2020-04-24 17:05:06.747 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:05:08.029 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$78ed9e77] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:05:08.722 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:05:08.735 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:05:08.736 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:05:08.864 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:05:08.864 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2349 ms
+2020-04-24 17:05:09.253 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:05:09.258 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:05:09.259 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:05:09.260 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:05:09.260 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:05:12.802 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:05:13.192 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:05:14.195 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:05:06 CST 2020]; root of context hierarchy
+2020-04-24 17:05:14.328 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:05:14.331 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:05:14.332 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:05:14.448 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:05:14.448 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:05:14.485 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:05:14.545 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:05:15.538 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:05:15.541 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:05:15.542 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:05:15.548 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:05:15.549 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:05:15.562 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:05:15.576 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:05:15.577 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:05:15.601 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:05:15.609 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 9.794 seconds (JVM running for 11.245)
+2020-04-24 17:05:58.461 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:05:58.461 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:05:58.504 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 43 ms
+2020-04-24 17:05:58.747 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {}
+2020-04-24 17:05:58.761 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"传入参数不能为空!!!","status":400},用时为 186
+2020-04-24 17:06:26.087 [Thread-23] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:05:06 CST 2020]; root of context hierarchy
+2020-04-24 17:06:26.092 [Thread-23] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:06:26.092 [Thread-23] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:06:26.100 [Thread-23] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:06:26.104 [Thread-23] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:06:33.247 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 31688 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:06:33.252 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:06:33.314 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:06:33 CST 2020]; root of context hierarchy
+2020-04-24 17:06:33.508 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:06:34.667 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$78ed9e77] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:06:35.351 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:06:35.363 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:06:35.364 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:06:35.480 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:06:35.481 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2167 ms
+2020-04-24 17:06:35.784 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:06:35.792 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:06:35.793 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:06:35.793 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:06:35.793 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:06:38.835 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:06:39.177 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:06:40.044 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:06:33 CST 2020]; root of context hierarchy
+2020-04-24 17:06:40.178 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:06:40.182 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:06:40.183 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:06:40.279 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:06:40.279 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:06:40.307 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:06:40.354 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:06:41.115 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:06:41.116 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:06:41.117 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:06:41.124 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:06:41.124 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:06:41.138 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:06:41.148 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:06:41.150 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:06:41.169 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:06:41.174 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 8.39 seconds (JVM running for 9.599)
+2020-04-24 17:06:44.577 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:06:44.578 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:06:44.662 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 84 ms
+2020-04-24 17:06:44.957 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {}
+2020-04-24 17:06:44.971 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"传入参数不能为空!!!","status":400},用时为 139
+2020-04-24 17:06:51.308 [http-nio-9110-exec-2] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {}
+2020-04-24 17:06:59.860 [http-nio-9110-exec-2] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"传入参数不能为空!!!","status":400},用时为 8552
+2020-04-24 17:07:18.891 [Thread-20] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:06:33 CST 2020]; root of context hierarchy
+2020-04-24 17:07:18.896 [Thread-20] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:07:18.897 [Thread-20] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:07:18.908 [Thread-20] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:07:18.911 [Thread-20] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:07:26.680 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 21616 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:07:26.684 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:07:26.733 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b79ac84: startup date [Fri Apr 24 17:07:26 CST 2020]; root of context hierarchy
+2020-04-24 17:07:26.886 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:07:28.112 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$b5598efb] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:07:28.771 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:07:28.782 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:07:28.783 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:07:28.891 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:07:28.891 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2158 ms
+2020-04-24 17:07:29.179 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:07:29.185 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:07:29.186 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:07:29.186 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:07:29.186 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:07:32.370 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:07:32.718 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:07:33.592 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b79ac84: startup date [Fri Apr 24 17:07:26 CST 2020]; root of context hierarchy
+2020-04-24 17:07:33.722 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:07:33.725 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:07:33.725 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:07:33.827 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:07:33.828 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:07:33.862 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:07:33.912 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:07:34.662 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:07:34.663 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:07:34.664 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:07:34.672 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:07:34.673 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:07:34.687 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:07:34.697 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:07:34.700 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:07:34.719 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:07:34.724 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 8.491 seconds (JVM running for 10.138)
+2020-04-24 17:07:38.312 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:07:38.313 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:07:38.349 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 35 ms
+2020-04-24 17:07:38.521 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {}
+2020-04-24 17:07:38.547 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"传入参数不能为空!!!","status":400},用时为 134
+2020-04-24 17:07:49.312 [http-nio-9110-exec-2] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {}
+2020-04-24 17:07:54.816 [http-nio-9110-exec-2] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"传入参数不能为空!!!","status":400},用时为 5504
+2020-04-24 17:09:06.748 [Thread-21] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b79ac84: startup date [Fri Apr 24 17:07:26 CST 2020]; root of context hierarchy
+2020-04-24 17:09:06.758 [Thread-21] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:09:06.759 [Thread-21] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:09:06.771 [Thread-21] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:09:06.775 [Thread-21] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:09:14.527 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 31612 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:09:14.531 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:09:14.592 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@53941c2f: startup date [Fri Apr 24 17:09:14 CST 2020]; root of context hierarchy
+2020-04-24 17:09:14.730 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:09:15.847 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$bad16613] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:09:16.509 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:09:16.522 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:09:16.525 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:09:16.645 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:09:16.645 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2053 ms
+2020-04-24 17:09:16.979 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:09:16.985 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:09:16.986 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:09:16.987 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:09:16.987 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:09:20.825 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:09:21.192 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:09:22.171 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@53941c2f: startup date [Fri Apr 24 17:09:14 CST 2020]; root of context hierarchy
+2020-04-24 17:09:22.291 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:09:22.294 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:09:22.294 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:09:22.397 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:09:22.397 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:09:22.428 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:09:22.475 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:09:23.249 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:09:23.250 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:09:23.251 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:09:23.258 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:09:23.258 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:09:23.272 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:09:23.283 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:09:23.286 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:09:23.307 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:09:23.312 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 9.183 seconds (JVM running for 10.526)
+2020-04-24 17:09:29.302 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:09:29.303 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:09:29.350 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 47 ms
+2020-04-24 17:09:29.540 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {}
+2020-04-24 17:09:29.559 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"传入参数不能为空!!!","status":400},用时为 139
+2020-04-24 17:10:01.141 [Thread-22] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@53941c2f: startup date [Fri Apr 24 17:09:14 CST 2020]; root of context hierarchy
+2020-04-24 17:10:01.143 [Thread-22] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:10:01.144 [Thread-22] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:10:01.153 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:10:01.156 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:10:09.035 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 20536 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:10:09.042 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:10:09.121 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@20435c40: startup date [Fri Apr 24 17:10:09 CST 2020]; root of context hierarchy
+2020-04-24 17:10:09.306 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:10:10.520 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$55e3aa8f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:10:11.143 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:10:11.154 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:10:11.156 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:10:11.262 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:10:11.263 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2143 ms
+2020-04-24 17:10:11.563 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:10:11.569 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:10:11.570 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:10:11.571 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:10:11.572 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:10:15.000 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:10:15.378 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:10:16.383 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@20435c40: startup date [Fri Apr 24 17:10:09 CST 2020]; root of context hierarchy
+2020-04-24 17:10:16.544 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:10:16.547 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:10:16.547 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:10:16.657 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:10:16.658 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:10:16.687 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:10:16.731 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:10:17.509 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:10:17.511 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:10:17.511 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:10:17.517 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:10:17.518 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:10:17.530 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:10:17.540 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:10:17.542 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:10:17.560 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:10:17.565 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 8.982 seconds (JVM running for 10.24)
+2020-04-24 17:10:26.000 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:10:26.000 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:10:26.048 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 48 ms
+2020-04-24 17:10:26.233 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {}
+2020-04-24 17:10:26.247 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"传入参数不能为空!!!","status":400},用时为 139
+2020-04-24 17:11:54.214 [Thread-22] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@20435c40: startup date [Fri Apr 24 17:10:09 CST 2020]; root of context hierarchy
+2020-04-24 17:11:54.224 [Thread-22] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:11:54.225 [Thread-22] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:11:54.235 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:11:54.239 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:12:48.420 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 28252 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:12:48.423 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:12:48.477 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:12:48 CST 2020]; root of context hierarchy
+2020-04-24 17:12:48.677 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:12:49.969 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fd8cc2df] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:12:50.632 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:12:50.645 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:12:50.647 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:12:50.772 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:12:50.772 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2295 ms
+2020-04-24 17:12:51.071 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:12:51.077 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:12:51.078 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:12:51.078 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:12:51.078 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:12:54.962 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:12:55.337 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:12:56.369 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:12:48 CST 2020]; root of context hierarchy
+2020-04-24 17:12:56.485 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:12:56.488 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:12:56.489 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:12:56.586 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:12:56.587 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:12:56.614 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:12:56.667 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:12:57.425 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:12:57.426 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:12:57.427 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:12:57.435 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:12:57.435 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:12:57.449 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:12:57.460 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:12:57.461 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:12:57.482 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:12:57.488 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 9.515 seconds (JVM running for 11.231)
+2020-04-24 17:13:10.174 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:13:10.175 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:13:10.228 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 53 ms
+2020-04-24 17:13:10.380 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {}
+2020-04-24 17:13:10.402 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"传入参数不能为空!!!","status":400},用时为 116
+2020-04-24 17:13:16.312 [http-nio-9110-exec-2] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {}
+2020-04-24 17:13:19.738 [http-nio-9110-exec-2] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"传入参数不能为空!!!","status":400},用时为 3424
+2020-04-24 17:13:44.826 [Thread-22] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:12:48 CST 2020]; root of context hierarchy
+2020-04-24 17:13:44.830 [Thread-22] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:13:44.832 [Thread-22] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:13:44.847 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:13:44.850 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:13:52.428 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 4976 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:13:52.431 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:13:52.516 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b79ac84: startup date [Fri Apr 24 17:13:52 CST 2020]; root of context hierarchy
+2020-04-24 17:13:52.624 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:13:53.901 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$f6f266e3] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:13:54.576 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:13:54.587 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:13:54.588 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:13:54.700 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:13:54.700 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2184 ms
+2020-04-24 17:13:55.037 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:13:55.044 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:13:55.045 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:13:55.045 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:13:55.045 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:13:58.309 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:13:58.678 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:13:59.581 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b79ac84: startup date [Fri Apr 24 17:13:52 CST 2020]; root of context hierarchy
+2020-04-24 17:13:59.704 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:13:59.707 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:13:59.708 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:13:59.805 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:13:59.806 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:13:59.833 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:13:59.881 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:14:00.651 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:14:00.653 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:14:00.653 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:14:00.659 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:14:00.660 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:14:00.673 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:14:00.684 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:14:00.686 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:14:00.704 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:14:00.708 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 8.726 seconds (JVM running for 10.305)
+2020-04-24 17:14:16.790 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:14:16.790 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:14:16.871 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 80 ms
+2020-04-24 17:14:46.080 [Thread-21] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b79ac84: startup date [Fri Apr 24 17:13:52 CST 2020]; root of context hierarchy
+2020-04-24 17:14:46.083 [Thread-21] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:14:46.084 [Thread-21] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:14:46.099 [Thread-21] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:14:46.104 [Thread-21] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:15:01.981 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 25912 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:15:01.985 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:15:02.035 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@20435c40: startup date [Fri Apr 24 17:15:02 CST 2020]; root of context hierarchy
+2020-04-24 17:15:02.185 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:15:03.349 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ab712e35] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:15:04.053 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:15:04.065 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:15:04.066 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:15:04.191 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:15:04.192 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2157 ms
+2020-04-24 17:15:04.494 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:15:04.500 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:15:04.500 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:15:04.501 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:15:04.501 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:15:08.358 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:15:08.702 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:15:10.092 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@20435c40: startup date [Fri Apr 24 17:15:02 CST 2020]; root of context hierarchy
+2020-04-24 17:15:10.358 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(java.lang.String)
+2020-04-24 17:15:10.363 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:15:10.363 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:15:10.550 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:15:10.564 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:15:10.624 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:15:10.713 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:15:11.657 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:15:11.659 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:15:11.659 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:15:11.667 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:15:11.669 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:15:11.682 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:15:11.694 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:15:11.696 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:15:11.714 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:15:11.721 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 10.223 seconds (JVM running for 12.074)
+2020-04-24 17:15:59.135 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:15:59.137 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:15:59.189 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 51 ms
+2020-04-24 17:18:36.849 [Thread-24] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@20435c40: startup date [Fri Apr 24 17:15:02 CST 2020]; root of context hierarchy
+2020-04-24 17:18:36.852 [Thread-24] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:18:36.856 [Thread-24] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:18:36.864 [Thread-24] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:18:36.867 [Thread-24] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:18:44.126 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 29376 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:18:44.129 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:18:44.205 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:18:44 CST 2020]; root of context hierarchy
+2020-04-24 17:18:44.477 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:18:45.516 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$ef38184a] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:18:46.122 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:18:46.131 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:18:46.133 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:18:46.240 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:18:46.241 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2035 ms
+2020-04-24 17:18:46.532 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:18:46.537 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:18:46.538 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:18:46.538 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:18:46.538 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:18:49.623 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:18:49.986 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:18:50.972 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:18:44 CST 2020]; root of context hierarchy
+2020-04-24 17:18:51.089 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:18:51.092 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:18:51.093 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:18:51.193 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:18:51.193 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:18:51.222 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:18:51.283 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:18:52.054 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:18:52.057 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:18:52.058 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:18:52.064 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:18:52.065 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:18:52.079 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:18:52.096 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:18:52.097 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:18:52.117 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:18:52.124 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 8.523 seconds (JVM running for 9.784)
+2020-04-24 17:18:57.800 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:18:57.800 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:18:57.842 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 42 ms
+2020-04-24 17:18:58.057 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {"db_id":"39f4cf7bf1c34e04ac07ba017458ba50"}
+2020-04-24 17:19:09.748 [Thread-20] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:18:44 CST 2020]; root of context hierarchy
+2020-04-24 17:19:09.752 [Thread-20] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:19:09.753 [Thread-20] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:19:09.765 [Thread-20] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:19:09.769 [Thread-20] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:19:17.854 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 28148 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:19:17.857 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:19:17.923 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:19:17 CST 2020]; root of context hierarchy
+2020-04-24 17:19:18.182 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:19:19.332 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$fe4ca6a2] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:19:19.978 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:19:19.987 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:19:19.989 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:19:20.100 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:19:20.100 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2177 ms
+2020-04-24 17:19:20.397 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:19:20.405 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:19:20.406 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:19:20.406 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:19:20.407 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:19:23.542 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:19:23.902 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:19:24.804 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:19:17 CST 2020]; root of context hierarchy
+2020-04-24 17:19:24.924 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:19:24.927 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:19:24.927 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:19:25.027 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:19:25.028 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:19:25.058 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:19:25.126 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:19:25.927 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:19:25.929 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:19:25.929 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:19:25.936 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:19:25.937 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:19:25.950 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:19:25.960 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:19:25.962 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:19:25.982 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:19:25.987 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 8.733 seconds (JVM running for 10.024)
+2020-04-24 17:19:29.067 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:19:29.067 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:19:29.114 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 47 ms
+2020-04-24 17:19:29.278 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {}
+2020-04-24 17:19:36.398 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"传入参数不能为空!!!","status":400},用时为 7210
+2020-04-24 17:20:18.973 [Thread-21] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:19:17 CST 2020]; root of context hierarchy
+2020-04-24 17:20:18.975 [Thread-21] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:20:18.976 [Thread-21] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:20:18.983 [Thread-21] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:20:18.987 [Thread-21] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:20:26.275 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 5028 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:20:26.278 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:20:26.380 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b79ac84: startup date [Fri Apr 24 17:20:26 CST 2020]; root of context hierarchy
+2020-04-24 17:20:26.688 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:20:28.036 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$139bdb73] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:20:28.715 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:20:28.728 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:20:28.729 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:20:28.845 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:20:28.845 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2465 ms
+2020-04-24 17:20:29.156 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:20:29.161 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:20:29.162 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:20:29.162 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:20:29.162 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:20:32.526 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:20:32.931 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:20:33.918 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b79ac84: startup date [Fri Apr 24 17:20:26 CST 2020]; root of context hierarchy
+2020-04-24 17:20:34.043 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:20:34.046 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:20:34.047 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:20:34.147 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:20:34.147 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:20:34.178 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:20:34.226 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:20:35.045 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:20:35.046 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:20:35.047 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:20:35.053 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:20:35.054 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:20:35.067 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:20:35.083 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:20:35.087 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:20:35.111 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:20:35.116 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 9.402 seconds (JVM running for 10.856)
+2020-04-24 17:21:25.590 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:21:25.590 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:21:25.655 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 65 ms
+2020-04-24 17:21:25.926 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {"db_id":"39f4cf7bf1c34e04ac07ba017458ba50"}
+2020-04-24 17:21:36.472 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"传入参数不能为空!!!","status":400},用时为 10670
+2020-04-24 17:24:13.530 [Thread-21] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@4b79ac84: startup date [Fri Apr 24 17:20:26 CST 2020]; root of context hierarchy
+2020-04-24 17:24:13.532 [Thread-21] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:24:13.534 [Thread-21] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:24:13.546 [Thread-21] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:24:13.550 [Thread-21] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:24:55.591 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 23008 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:24:55.597 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:24:55.675 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:24:55 CST 2020]; root of context hierarchy
+2020-04-24 17:24:55.835 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:24:57.060 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8d12391d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:24:57.759 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:24:57.772 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:24:57.775 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:24:57.889 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:24:57.890 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2215 ms
+2020-04-24 17:24:58.300 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:24:58.311 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:24:58.312 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:24:58.312 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:24:58.312 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:25:01.737 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:25:02.105 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:25:02.984 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:24:55 CST 2020]; root of context hierarchy
+2020-04-24 17:25:03.182 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:25:03.186 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:25:03.186 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:25:03.315 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:25:03.315 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:25:03.345 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:25:03.412 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:25:04.281 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:25:04.282 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:25:04.283 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:25:04.292 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:25:04.293 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:25:04.308 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:25:04.320 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:25:04.321 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:25:04.345 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:25:04.351 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 9.421 seconds (JVM running for 10.826)
+2020-04-24 17:25:07.343 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:25:07.343 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:25:07.397 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 54 ms
+2020-04-24 17:25:07.639 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {"db_id":"39f4cf7bf1c34e04ac07ba017458ba50","his_domain_id":"2.16.840.1.113883.4.487.2.1.4.1","his_visit_id":"ZY010030495029","his_visit_domain_id":"2.16.840.1.113883.4.487.2.1.4.4","his_id":"0030495029"}
+2020-04-24 17:25:12.965 [http-nio-9110-exec-1] INFO  com.djhu.service.query.ESQueryDataServiceImpl - 查询专科库请求为: {
+  "query" : {
+    "bool" : {
+      "should" : [
+        {
+          "bool" : {
+            "must" : [
+              {
+                "term" : {
+                  "his_id.keyword" : {
+                    "value" : "0030495029",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_visit_id.keyword" : {
+                    "value" : "ZY010030495029",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_domain_id.keyword" : {
+                    "value" : "2.16.840.1.113883.4.487.2.1.4.1",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_visit_domain_id.keyword" : {
+                    "value" : "2.16.840.1.113883.4.487.2.1.4.4",
+                    "boost" : 1.0
+                  }
+                }
+              }
+            ],
+            "disable_coord" : false,
+            "adjust_pure_negative" : true,
+            "boost" : 1.0
+          }
+        }
+      ],
+      "disable_coord" : false,
+      "adjust_pure_negative" : true,
+      "boost" : 1.0
+    }
+  }
+},数据库id: 39f4cf7bf1c34e04ac07ba017458ba50
+2020-04-24 17:25:12.999 [http-nio-9110-exec-1] INFO  com.djhu.service.query.ESQueryDataServiceImpl - 查询专科库数据成功. 数据总数为: 0 条
+2020-04-24 17:25:13.005 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"SUCCESS","data":{},"status":200},用时为 5485
+2020-04-24 17:25:41.505 [http-nio-9110-exec-2] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {"db_id":"39f4cf7bf1c34e04ac07ba017458ba50","his_domain_id":"2.16.840.1.113883.4.487.2.1.4.1","his_visit_id":"ZY010030495029","his_visit_domain_id":"2.16.840.1.113883.4.487.2.1.4.4","his_id":"0030495029"}
+2020-04-24 17:25:44.979 [http-nio-9110-exec-2] INFO  com.djhu.service.query.ESQueryDataServiceImpl - 查询专科库请求为: {
+  "query" : {
+    "bool" : {
+      "should" : [
+        {
+          "bool" : {
+            "must" : [
+              {
+                "term" : {
+                  "his_id.keyword" : {
+                    "value" : "0030495029",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_visit_id.keyword" : {
+                    "value" : "ZY010030495029",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_domain_id.keyword" : {
+                    "value" : "2.16.840.1.113883.4.487.2.1.4.1",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_visit_domain_id.keyword" : {
+                    "value" : "2.16.840.1.113883.4.487.2.1.4.4",
+                    "boost" : 1.0
+                  }
+                }
+              }
+            ],
+            "disable_coord" : false,
+            "adjust_pure_negative" : true,
+            "boost" : 1.0
+          }
+        }
+      ],
+      "disable_coord" : false,
+      "adjust_pure_negative" : true,
+      "boost" : 1.0
+    }
+  }
+},数据库id: 39f4cf7bf1c34e04ac07ba017458ba50
+2020-04-24 17:25:44.992 [http-nio-9110-exec-2] INFO  com.djhu.service.query.ESQueryDataServiceImpl - 查询专科库数据成功. 数据总数为: 0 条
+2020-04-24 17:25:46.934 [http-nio-9110-exec-2] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"SUCCESS","data":{},"status":200},用时为 5429
+2020-04-24 17:27:00.317 [Thread-22] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:24:55 CST 2020]; root of context hierarchy
+2020-04-24 17:27:00.321 [Thread-22] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:27:00.326 [Thread-22] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:27:00.332 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:27:00.337 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:27:07.346 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 19080 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:27:07.349 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:27:07.403 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:27:07 CST 2020]; root of context hierarchy
+2020-04-24 17:27:07.580 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:27:08.744 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$d0143296] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:27:09.521 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:27:09.533 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:27:09.534 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:27:09.648 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:27:09.649 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2246 ms
+2020-04-24 17:27:09.983 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:27:09.990 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:27:09.990 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:27:09.991 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:27:09.991 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:27:13.712 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:27:14.079 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:27:15.327 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:27:07 CST 2020]; root of context hierarchy
+2020-04-24 17:27:15.483 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:27:15.487 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:27:15.487 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:27:15.598 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:27:15.598 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:27:15.630 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:27:15.688 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:27:16.513 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:27:16.515 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:27:16.515 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:27:16.530 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:27:16.531 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:27:16.552 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:27:16.566 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:27:16.568 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:27:16.591 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:27:16.597 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 9.83 seconds (JVM running for 11.403)
+2020-04-24 17:27:47.245 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:27:47.246 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:27:47.335 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 89 ms
+2020-04-24 17:27:47.598 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {"db_id":"39f4cf7bf1c34e04ac07ba017458ba50","his_domain_id":"2.16.840.1.113883.4.487.2.1.4","his_visit_id":"ZY010030495029","his_visit_domain_id":"2.16.840.1.113883.4.487.2.1.4.4","his_id":"0030495029"}
+2020-04-24 17:27:47.775 [http-nio-9110-exec-1] INFO  com.djhu.service.query.ESQueryDataServiceImpl - 查询专科库请求为: {
+  "query" : {
+    "bool" : {
+      "should" : [
+        {
+          "bool" : {
+            "must" : [
+              {
+                "term" : {
+                  "his_id.keyword" : {
+                    "value" : "0030495029",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_visit_id.keyword" : {
+                    "value" : "ZY010030495029",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_domain_id.keyword" : {
+                    "value" : "2.16.840.1.113883.4.487.2.1.4",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_visit_domain_id.keyword" : {
+                    "value" : "2.16.840.1.113883.4.487.2.1.4.4",
+                    "boost" : 1.0
+                  }
+                }
+              }
+            ],
+            "disable_coord" : false,
+            "adjust_pure_negative" : true,
+            "boost" : 1.0
+          }
+        }
+      ],
+      "disable_coord" : false,
+      "adjust_pure_negative" : true,
+      "boost" : 1.0
+    }
+  }
+},数据库id: 39f4cf7bf1c34e04ac07ba017458ba50
+2020-04-24 17:27:48.045 [http-nio-9110-exec-1] INFO  com.djhu.service.query.ESQueryDataServiceImpl - 查询专科库数据成功. 数据总数为: 1 条
+2020-04-24 17:27:48.051 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"SUCCESS","data":{"effective_time":"20190325154225","residential_address":"武汉市新洲区徐古镇乌钵窑村乌钵窑湾46号","contact_phone":"13602783451","discharge_date":"20190225113353","patient_class":"6","referring_doctor":"廖新学","shift_cause":"确认出院","creator_by_id":"20190114000001","relevance_id_01":"ZY010030495029^2.16.840.1.113883.4.487.2.1.4.4","admissions_doctor":"庄晓东","empi":"299590bf-6758-44da-95af-fa0af03ab29f","finally_status_code":"5","shift_type":"5","pat_category":"1","tend_level":"一级护理","his_id":"0030495029","person_id":"zsy_00005045","home_phone":"13602783451","16":[{"DJ_MD_DE05_01_025_07":"1.急性非ST段抬高型心肌梗死,2.冠状动脉粥样硬化性心脏病 1)冠状动脉支架植入后状态2)左房左室增大3)心房颤动4)心功能Ⅳ级,3.肺部感染,4.慢性阻塞性肺病伴有急性加重,5.高血压病2级 极高危组,6.低蛋白血症","DJ_ID_DE01_00_026_00_number":28,"DJ_DASC_DE02_01_026_00_str":"82岁","DJ_ID_DE01_00_014_00":"0030495029","DJ_PAI_DE06_00_017_00":"2019年02月25日11时33分","DJ_ME_DE05_10_109_02":"1.急性非ST段抬高型心肌梗死,2.冠状动脉粥样硬化性心脏病 1)冠状动脉支架植入后状态2)左房左室增大3)心房颤动4)心功能Ⅳ级,3.肺部感染,4.慢性阻塞性肺病伴有急性加重,5.高血压病2级 极高危组","DJ_DASC_DE02_01_039_34":"陶维德","DJ_ME_DE05_10_148_00":"患者男，82岁，主因“发作性胸闷、胸痛9年，再发胸痛4月余”入院，入院查体：","DJ_ID_DE01_00_026_00":"034","DJ_HI_DE08_10_054_00":"心内一科心内一科","DJ_PAI_DE06_00_091_00":"2019年02月16日","DJ_DASC_DE02_01_040_01":"男","DJ_HI_DE08_10_026_03":"心内一科","DJ_DASC_DE02_01_026_00":"82岁","DJ_HIS_ID":"0030495029"}],"consultation_doctor_id":"002009","consultation_doctor":"廖新学","gender_cd":"2","discharge_dept":"7401","finally_status":"确认出院","insurance_type":"6","patient_id":"0030495029","name":"陶维德","identity_no":"420124193605252330","pat_nurse_code":"00516T","admissions_doctor_id":"002L24","registered_address":"武汉市新洲区徐古镇乌钵窑村乌钵窑湾46号","patient_unique_id":"zsy_00000008250","date_of_birth":"19360525000000","study_time":"20190325154225","received_time":"20190325154225","age_str":"Y0083","visit_flow_domain":"2.16.840.1.113883.4.487.2.1.4.4","his_visit_domain_id":"2.16.840.1.113883.4.487.2.1.4.4","referring_doctor_id":"002009","visit_flow_id":"ZY010030495029","his_visit_id":"ZY010030495029","pat_nurse_name":"包亚运","admit_dept":"7401","patient_type_code":"1","admit_date":"20190216161828","patient_type_name":"住院","contact_relations":"子","contact_person":"陶兴胜","date_created":"20190216161838","his_domain_id":"2.16.840.1.113883.4.487.2.1.4","patient_domain_id":"2.16.840.1.113883.4.487.2.1.4","relevance_id_02":"0030495029^2.16.840.1.113883.4.487.2.1.4","age":"Y83"},"status":200},用时为 555
+2020-04-24 17:29:11.630 [Thread-22] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:27:07 CST 2020]; root of context hierarchy
+2020-04-24 17:29:11.633 [Thread-22] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:29:11.633 [Thread-22] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:29:11.642 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:29:11.646 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:31:23.801 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 19364 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:31:23.805 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:31:23.861 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@53941c2f: startup date [Fri Apr 24 17:31:23 CST 2020]; root of context hierarchy
+2020-04-24 17:31:24.051 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:31:25.156 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$e84a5104] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:31:25.801 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:31:25.813 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:31:25.814 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:31:25.919 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:31:25.919 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2058 ms
+2020-04-24 17:31:26.227 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:31:26.233 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:31:26.234 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:31:26.234 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:31:26.234 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:31:29.408 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:31:29.767 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:31:30.699 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@53941c2f: startup date [Fri Apr 24 17:31:23 CST 2020]; root of context hierarchy
+2020-04-24 17:31:30.835 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:31:30.839 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:31:30.840 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:31:30.944 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:31:30.944 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:31:30.974 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:31:31.023 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:31:31.939 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:31:31.940 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:31:31.941 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:31:31.947 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:31:31.949 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:31:31.963 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:31:31.974 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:31:31.975 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:31:31.999 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:31:32.004 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 8.669 seconds (JVM running for 10.007)
+2020-04-24 17:31:56.671 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:31:56.671 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:31:56.764 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 92 ms
+2020-04-24 17:31:57.162 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {"db_id":"39f4cf7bf1c34e04ac07ba017458ba50"}
+2020-04-24 17:32:08.832 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"传入参数不能为空!!!","status":400},用时为 11789
+2020-04-24 17:32:09.160 [Thread-21] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@53941c2f: startup date [Fri Apr 24 17:31:23 CST 2020]; root of context hierarchy
+2020-04-24 17:32:09.164 [Thread-21] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:32:09.166 [Thread-21] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:32:09.174 [Thread-21] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:32:09.178 [Thread-21] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:32:15.409 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 18520 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:32:15.412 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:32:15.490 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@53941c2f: startup date [Fri Apr 24 17:32:15 CST 2020]; root of context hierarchy
+2020-04-24 17:32:15.747 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:32:16.961 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$8e90a21e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:32:17.608 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:32:17.619 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:32:17.620 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:32:17.741 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:32:17.741 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2251 ms
+2020-04-24 17:32:18.048 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:32:18.054 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:32:18.054 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:32:18.055 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:32:18.056 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:32:21.291 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:32:21.650 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:32:22.544 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@53941c2f: startup date [Fri Apr 24 17:32:15 CST 2020]; root of context hierarchy
+2020-04-24 17:32:22.671 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:32:22.674 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:32:22.675 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:32:22.783 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:32:22.783 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:32:22.813 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:32:22.861 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:32:23.599 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:32:23.608 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:32:23.609 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:32:23.615 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:32:23.615 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:32:23.631 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:32:23.642 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:32:23.644 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:32:23.662 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:32:23.668 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 8.779 seconds (JVM running for 10.271)
+2020-04-24 17:36:39.200 [Thread-22] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@53941c2f: startup date [Fri Apr 24 17:32:15 CST 2020]; root of context hierarchy
+2020-04-24 17:36:39.202 [Thread-22] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:36:39.203 [Thread-22] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:36:39.213 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:36:39.218 [Thread-22] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:36:46.911 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 29536 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:36:46.919 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:36:46.972 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:36:46 CST 2020]; root of context hierarchy
+2020-04-24 17:36:47.160 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:36:48.220 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$242da3d7] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:36:48.838 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:36:48.848 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:36:48.849 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:36:48.956 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:36:48.957 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 1984 ms
+2020-04-24 17:36:49.256 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:36:49.263 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:36:49.263 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:36:49.264 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:36:49.264 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:36:52.353 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:36:52.713 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:36:53.613 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:36:46 CST 2020]; root of context hierarchy
+2020-04-24 17:36:53.724 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:36:53.726 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:36:53.727 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:36:53.831 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:36:53.831 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:36:53.874 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:36:53.936 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:36:54.685 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:36:54.686 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:36:54.687 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:36:54.693 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:36:54.694 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:36:54.707 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:36:54.718 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:36:54.720 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:36:54.739 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:36:54.745 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 8.295 seconds (JVM running for 9.643)
+2020-04-24 17:37:29.537 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:37:29.537 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:37:29.602 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 64 ms
+2020-04-24 17:37:29.971 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {"db_id":"39f4cf7bf1c34e04ac07ba017458ba50","his_domain_id":"2.16.840.1.113883.4.487.2.1.4","his_visit_id":"ZY010030495029","his_visit_domain_id":"2.16.840.1.113883.4.487.2.1.4.4","his_id":"0030495029"}
+2020-04-24 17:37:30.151 [http-nio-9110-exec-1] INFO  com.djhu.service.query.ESQueryDataServiceImpl - 查询专科库请求为: {
+  "query" : {
+    "bool" : {
+      "should" : [
+        {
+          "bool" : {
+            "must" : [
+              {
+                "term" : {
+                  "his_id.keyword" : {
+                    "value" : "0030495029",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_visit_id.keyword" : {
+                    "value" : "ZY010030495029",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_domain_id.keyword" : {
+                    "value" : "2.16.840.1.113883.4.487.2.1.4",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_visit_domain_id.keyword" : {
+                    "value" : "2.16.840.1.113883.4.487.2.1.4.4",
+                    "boost" : 1.0
+                  }
+                }
+              }
+            ],
+            "disable_coord" : false,
+            "adjust_pure_negative" : true,
+            "boost" : 1.0
+          }
+        }
+      ],
+      "disable_coord" : false,
+      "adjust_pure_negative" : true,
+      "boost" : 1.0
+    }
+  }
+},数据库id: 39f4cf7bf1c34e04ac07ba017458ba50
+2020-04-24 17:37:30.485 [http-nio-9110-exec-1] INFO  com.djhu.service.query.ESQueryDataServiceImpl - 查询专科库数据成功. 数据总数为: 1 条
+2020-04-24 17:37:30.498 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，返回界面的结果为 {"msg":"SUCCESS","data":{"effective_time":"20190325154225","residential_address":"武汉市新洲区徐古镇乌钵窑村乌钵窑湾46号","contact_phone":"13602783451","discharge_date":"20190225113353","patient_class":"6","referring_doctor":"廖新学","shift_cause":"确认出院","creator_by_id":"20190114000001","relevance_id_01":"ZY010030495029^2.16.840.1.113883.4.487.2.1.4.4","admissions_doctor":"庄晓东","empi":"299590bf-6758-44da-95af-fa0af03ab29f","finally_status_code":"5","shift_type":"5","pat_category":"1","tend_level":"一级护理","his_id":"0030495029","person_id":"zsy_00005045","home_phone":"13602783451","16":[{"DJ_MD_DE05_01_025_07":"1.急性非ST段抬高型心肌梗死,2.冠状动脉粥样硬化性心脏病 1)冠状动脉支架植入后状态2)左房左室增大3)心房颤动4)心功能Ⅳ级,3.肺部感染,4.慢性阻塞性肺病伴有急性加重,5.高血压病2级 极高危组,6.低蛋白血症","DJ_ID_DE01_00_026_00_number":28,"DJ_DASC_DE02_01_026_00_str":"82岁","DJ_ID_DE01_00_014_00":"0030495029","DJ_PAI_DE06_00_017_00":"2019年02月25日11时33分","DJ_ME_DE05_10_109_02":"1.急性非ST段抬高型心肌梗死,2.冠状动脉粥样硬化性心脏病 1)冠状动脉支架植入后状态2)左房左室增大3)心房颤动4)心功能Ⅳ级,3.肺部感染,4.慢性阻塞性肺病伴有急性加重,5.高血压病2级 极高危组","DJ_DASC_DE02_01_039_34":"陶维德","DJ_ME_DE05_10_148_00":"患者男，82岁，主因“发作性胸闷、胸痛9年，再发胸痛4月余”入院，入院查体：","DJ_ID_DE01_00_026_00":"034","DJ_HI_DE08_10_054_00":"心内一科心内一科","DJ_PAI_DE06_00_091_00":"2019年02月16日","DJ_DASC_DE02_01_040_01":"男","DJ_HI_DE08_10_026_03":"心内一科","DJ_DASC_DE02_01_026_00":"82岁","DJ_HIS_ID":"0030495029"}],"consultation_doctor_id":"002009","consultation_doctor":"廖新学","gender_cd":"2","discharge_dept":"7401","finally_status":"确认出院","insurance_type":"6","patient_id":"0030495029","name":"陶维德","identity_no":"420124193605252330","pat_nurse_code":"00516T","admissions_doctor_id":"002L24","registered_address":"武汉市新洲区徐古镇乌钵窑村乌钵窑湾46号","patient_unique_id":"zsy_00000008250","date_of_birth":"19360525000000","study_time":"20190325154225","received_time":"20190325154225","age_str":"Y0083","visit_flow_domain":"2.16.840.1.113883.4.487.2.1.4.4","his_visit_domain_id":"2.16.840.1.113883.4.487.2.1.4.4","referring_doctor_id":"002009","visit_flow_id":"ZY010030495029","his_visit_id":"ZY010030495029","pat_nurse_name":"包亚运","admit_dept":"7401","patient_type_code":"1","admit_date":"20190216161828","patient_type_name":"住院","contact_relations":"子","contact_person":"陶兴胜","date_created":"20190216161838","his_domain_id":"2.16.840.1.113883.4.487.2.1.4","patient_domain_id":"2.16.840.1.113883.4.487.2.1.4","relevance_id_02":"0030495029^2.16.840.1.113883.4.487.2.1.4","age":"Y83"},"status":200},用时为 629
+2020-04-24 17:41:12.294 [Thread-20] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:36:46 CST 2020]; root of context hierarchy
+2020-04-24 17:41:12.299 [Thread-20] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 17:41:12.302 [Thread-20] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 17:41:12.310 [Thread-20] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 17:41:12.314 [Thread-20] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
+2020-04-24 17:41:20.974 [main] INFO  com.djhu.DataBridgeApplication - Starting DataBridgeApplication on DESKTOP-VQSHC3L with PID 31724 (E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge\target\classes started by user in E:\workspace\HiUPV2\app\trunk\departmentsearch_2.0.2\branch\hiup-app-research-200415\hiup-data-bridge)
+2020-04-24 17:41:20.976 [main] INFO  com.djhu.DataBridgeApplication - No active profile set, falling back to default profiles: default
+2020-04-24 17:41:21.030 [main] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:41:21 CST 2020]; root of context hierarchy
+2020-04-24 17:41:21.199 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 5.3.4.Final
+2020-04-24 17:41:22.423 [main] INFO  o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$cc1be8da] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2020-04-24 17:41:23.118 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat initialized with port(s): 9110 (http)
+2020-04-24 17:41:23.131 [main] INFO  org.apache.catalina.core.StandardService - Starting service Tomcat
+2020-04-24 17:41:23.133 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.11
+2020-04-24 17:41:23.258 [localhost-startStop-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2020-04-24 17:41:23.259 [localhost-startStop-1] INFO  org.springframework.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2229 ms
+2020-04-24 17:41:23.595 [localhost-startStop-1] INFO  o.s.boot.web.servlet.ServletRegistrationBean - Mapping servlet: 'dispatcherServlet' to [/]
+2020-04-24 17:41:23.601 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'characterEncodingFilter' to: [/*]
+2020-04-24 17:41:23.602 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2020-04-24 17:41:23.604 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2020-04-24 17:41:23.604 [localhost-startStop-1] INFO  o.s.boot.web.servlet.FilterRegistrationBean - Mapping filter: 'requestContextFilter' to: [/*]
+2020-04-24 17:41:27.069 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+2020-04-24 17:41:27.430 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} inited
+2020-04-24 17:41:28.361 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:41:21 CST 2020]; root of context hierarchy
+2020-04-24 17:41:28.497 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/data/query],methods=[POST],produces=[application/json;charset=UTF-8]}" onto public com.djhu.common.Result com.djhu.controller.ForeignDataController.query(com.djhu.entity.dto.UnifiedDto)
+2020-04-24 17:41:28.499 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2020-04-24 17:41:28.500 [main] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2020-04-24 17:41:28.614 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:41:28.615 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:41:28.646 [main] INFO  o.s.w.s.m.m.a.ExceptionHandlerExceptionResolver - Detected @ExceptionHandler methods in commonControlAdvice
+2020-04-24 17:41:28.698 [main] INFO  o.s.web.servlet.handler.SimpleUrlHandlerMapping - Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2020-04-24 17:41:29.484 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2020-04-24 17:41:29.485 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'dataSource' has been autodetected for JMX exposure
+2020-04-24 17:41:29.486 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Bean with name 'scientPerDataSource' has been autodetected for JMX exposure
+2020-04-24 17:41:29.492 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'dataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=dataSource,type=DruidDataSource]
+2020-04-24 17:41:29.493 [main] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Located MBean 'scientPerDataSource': registering with JMX server as MBean [com.alibaba.druid.pool:name=scientPerDataSource,type=DruidDataSource]
+2020-04-24 17:41:29.507 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9110"]
+2020-04-24 17:41:29.518 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler [http-nio-9110]
+2020-04-24 17:41:29.519 [main] INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
+2020-04-24 17:41:29.542 [main] INFO  o.s.b.c.e.tomcat.TomcatEmbeddedServletContainer - Tomcat started on port(s): 9110 (http)
+2020-04-24 17:41:29.549 [main] INFO  com.djhu.DataBridgeApplication - Started DataBridgeApplication in 9.041 seconds (JVM running for 10.515)
+2020-04-24 17:42:09.478 [http-nio-9110-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring FrameworkServlet 'dispatcherServlet'
+2020-04-24 17:42:09.480 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2020-04-24 17:42:09.523 [http-nio-9110-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 43 ms
+2020-04-24 17:42:09.765 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口，接到的请求为 {"db_id":"39f4cf7bf1c34e04ac07ba017458ba50","his_domain_id":"2.16.840.1.113883.4.487.2.1.4","his_visit_id":"ZY010030495029","his_visit_domain_id":"2.16.840.1.113883.4.487.2.1.4.4","his_id":"0030495029"}
+2020-04-24 17:42:09.943 [http-nio-9110-exec-1] INFO  com.djhu.service.query.ESQueryDataServiceImpl - 查询专科库请求为: {
+  "query" : {
+    "bool" : {
+      "should" : [
+        {
+          "bool" : {
+            "must" : [
+              {
+                "term" : {
+                  "his_id.keyword" : {
+                    "value" : "0030495029",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_visit_id.keyword" : {
+                    "value" : "ZY010030495029",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_domain_id.keyword" : {
+                    "value" : "2.16.840.1.113883.4.487.2.1.4",
+                    "boost" : 1.0
+                  }
+                }
+              },
+              {
+                "term" : {
+                  "his_visit_domain_id.keyword" : {
+                    "value" : "2.16.840.1.113883.4.487.2.1.4.4",
+                    "boost" : 1.0
+                  }
+                }
+              }
+            ],
+            "disable_coord" : false,
+            "adjust_pure_negative" : true,
+            "boost" : 1.0
+          }
+        }
+      ],
+      "disable_coord" : false,
+      "adjust_pure_negative" : true,
+      "boost" : 1.0
+    }
+  }
+},数据库id: 39f4cf7bf1c34e04ac07ba017458ba50
+2020-04-24 17:42:10.228 [http-nio-9110-exec-1] INFO  com.djhu.service.query.ESQueryDataServiceImpl - 查询专科库数据成功. 数据总数为: 1 条
+2020-04-24 17:42:10.230 [http-nio-9110-exec-1] INFO  com.djhu.common.aspect.ApiLogAspect - 科研对外查询接口 接口,用时为 583 ms
+2020-04-24 23:42:23.279 [Thread-21] INFO  o.s.b.c.e.AnnotationConfigEmbeddedWebApplicationContext - Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7e4204e2: startup date [Fri Apr 24 17:41:21 CST 2020]; root of context hierarchy
+2020-04-24 23:42:23.311 [Thread-21] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans on shutdown
+2020-04-24 23:42:23.312 [Thread-21] INFO  o.s.jmx.export.annotation.AnnotationMBeanExporter - Unregistering JMX-exposed beans
+2020-04-24 23:42:23.326 [Thread-21] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} closed
+2020-04-24 23:42:23.327 [Thread-21] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-2} closed
