@@ -24,12 +24,15 @@ public class IQueryDataServiceTest extends Tester {
     @Test
     public void findAllTest(){
         String dbId = "39f4cf7bf1c34e04ac07ba017458ba50";
+        dbId = null;
+        dbId = "24";
         queryDataService.findAll(dbId);
     }
 
     @Test
     public void findAll2Test(){
         String dbId = "39f4cf7bf1c34e04ac07ba017458ba50";
+        dbId = "a";
         HIsInfoDto hisinfo0 = new HIsInfoDto("0030495029", "ZY010030495029", "2.16.840.1.113883.4.487.2.1.4", "2.16.840.1.113883.4.487.2.1.4.4");
         HIsInfoDto hisinfo1 = new HIsInfoDto("0030461794", "ZY010030461794", "2.16.840.1.113883.4.487.2.1.4", "2.16.840.1.113883.4.487.2.1.4.4");
         List<HIsInfoDto> hIsInfos = Arrays.asList(hisinfo0,hisinfo1);
@@ -39,6 +42,7 @@ public class IQueryDataServiceTest extends Tester {
     @Test
     public void findByTest(){
         String dbId = "39f4cf7bf1c34e04ac07ba017458ba50";
+        dbId = null;
         queryDataService.findBy(dbId,new HIsInfoDto("0030495029", "ZY010030495029", "2.16.840.1.113883.4.487.2.1.4", "2.16.840.1.113883.4.487.2.1.4.4"));
     }
 

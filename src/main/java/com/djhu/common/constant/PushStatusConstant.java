@@ -8,14 +8,14 @@ package com.djhu.common.constant;
 public class PushStatusConstant {
 
     /**
-     *  推送状态 1-已推 2-未推
+     *  推送状态 0-已推 1-未推
      */
-    public static final String PUSHED = "1";
-    public static final String NOT_PUSHED = "2";
+    public static final String PUSHED = "0";
+    public static final String NOT_PUSHED = "1";
 
 
-    public static final String SUCCESS = "1";
-    public static final String ERROR = "2";
+    public static final String SUCCESS = "0";
+    public static final String ERROR = "1";
 
 
 

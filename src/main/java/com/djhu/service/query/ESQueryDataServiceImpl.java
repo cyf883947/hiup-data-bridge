@@ -23,7 +23,7 @@ import java.util.*;
  **/
 @Slf4j
 @Service
-public class ESQueryDataServiceImpl implements IQueryDataService<Map<String,Object>> {
+public class ESQueryDataServiceImpl implements IQueryDataService<Map<String, Object>> {
 
     @Autowired
     private ElasticsearchTemplate elasticsearchTemplate;
@@ -33,15 +33,14 @@ public class ESQueryDataServiceImpl implements IQueryDataService<Map<String,Obje
 
     @Override
     public List<Map<String, Object>> findAll(String dbId) {
-        return findAll(dbId,null);
+        return findAll(dbId, Collections.emptyList());
     }
 
     @Override
     public Map<String, Object> findBy(String dbId, HIsInfoDto hIsInfo) {
-        Map<String, Object> map =  null;
-
-        List<Map<String, Object>> mapList = findAll(dbId, Arrays.asList(hIsInfo));
-        if(CollectionUtils.isNotEmpty(mapList)){
+        Map<String, Object> map = null;
+        List<Map<String, Object>> mapList = hIsInfo == null?findAll(dbId):findAll(dbId, Arrays.asList(hIsInfo));
+        if (CollectionUtils.isNotEmpty(mapList)) {
             map = mapList.get(0);
         }
         return map;
@@ -49,43 +48,53 @@ public class ESQueryDataServiceImpl implements IQueryDataService<Map<String,Obje
 
     @Override
     public List<Map<String, Object>> findAll(String dbId, List<HIsInfoDto> hIsInfos) {
-        List<Map<String, Object>> mapList = new ArrayList<>();
-        String esSuffix = tbDbResourceService.getEsSuffixByDbId(dbId);
-
-        if(StringUtils.isNotEmpty(esSuffix)){
-            SearchRequest searchRequest = getSearchRequest(hIsInfos, esSuffix);
-            try {
-                log.info("查询专科库请求为: {},数据库id: {}", RequestUtils.request2josn(searchRequest),dbId);
-                mapList = elasticsearchTemplate.queryforList(searchRequest);
-                log.info("查询专科库数据成功. 数据总数为: {} 条",mapList.size());
-            } catch (Exception e) {
-                log.error("查询专科库数据失败!!! 专科库dbId: {},{}",dbId,e);
-            }
-        }
-        return mapList;
+        SearchRequest searchRequest = getSearchRequest(hIsInfos);
+        return findAll(dbId, searchRequest);
     }
 
-    private SearchRequest getSearchRequest(List<HIsInfoDto> hIsInfos, String esSuffix) {
+    @Override
+    public List<Map<String, Object>> findAll(String dbId, SearchRequest searchRequest) {
+        String esSuffix = tbDbResourceService.getEsSuffixByDbId(dbId);
+        if (StringUtils.isNotEmpty(esSuffix)) {
+            String index = GlobalConstant.HIUP_PERSON_INDEX + "_" + esSuffix;
+            String type = GlobalConstant.HIUP_PERSON_TYPE;
+            ((AbstractRequest) searchRequest).setIndex(index);
+            ((AbstractRequest) searchRequest).setType(type);
+            List<Map<String, Object>> mapList = getMapList(dbId, searchRequest);
+            return mapList;
+        }
+        return Collections.emptyList();
+    }
+
+    private SearchRequest getSearchRequest(List<HIsInfoDto> hIsInfos) {
         SearchRequest searchRequest;
-        if(CollectionUtils.isEmpty(hIsInfos)){
+        if (CollectionUtils.isEmpty(hIsInfos)) {
             searchRequest = new MacthAllRequest();
-        }else {
+        } else {
             List<SearchRequest> searchRequests = new ArrayList<>(hIsInfos.size());
             Iterator<HIsInfoDto> it = hIsInfos.iterator();
-            while (it.hasNext()){
+            while (it.hasNext()) {
                 HIsInfoRequest hIsInfoRequest = new HIsInfoRequest();
-                BeanUtils.copyProperties(it.next(),hIsInfoRequest);
+                BeanUtils.copyProperties(it.next(), hIsInfoRequest);
                 AutoGeneratorSearchRequest autoSearchRequest = new AutoGeneratorSearchRequest(hIsInfoRequest);
                 searchRequests.add(new ShouldSearchRequest(autoSearchRequest));
             }
             searchRequest = new BoolSearchRequest(searchRequests);
         }
-
-        String index = GlobalConstant.HIUP_PERSON_INDEX+"_"+esSuffix;
-        String type = GlobalConstant.HIUP_PERSON_TYPE;
-        ((AbstractRequest) searchRequest).setIndex(index);
-        ((AbstractRequest) searchRequest).setType(type);
         return searchRequest;
     }
+
+    private List<Map<String, Object>> getMapList(String dbId, SearchRequest searchRequest) {
+        List<Map<String, Object>> mapList = new ArrayList<>();
+        try {
+            log.info("查询专科库请求为: {},数据库id: {}", RequestUtils.request2josn(searchRequest), dbId);
+            mapList = elasticsearchTemplate.queryforList(searchRequest);
+            log.info("查询专科库数据成功. 数据总数为: {} 条", mapList.size());
+        } catch (Exception e) {
+            log.error("查询专科库数据失败!!! 专科库dbId: {},{}", dbId, e);
+        }
+        return mapList;
+    }
+
 
 }

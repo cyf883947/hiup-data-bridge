@@ -20,6 +20,7 @@ public class ITbDbPurchaserServiceTest extends Tester {
     @Test
     public void selectByIdTest(){
         String id = "1";
+        id = "a";
         TbDbPurchaser tbDbPurchaser = purchaserService.selectById(id);
         log.info("tbDbPurchaser is '{}'",tbDbPurchaser);
     }

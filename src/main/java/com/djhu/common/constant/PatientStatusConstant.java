@@ -8,10 +8,10 @@ package com.djhu.common.constant;
 public class PatientStatusConstant {
 
     /**
-     *  推送到厂商的数据状态 1-新增 2-修改 3-删除
+     *  推送到厂商的数据状态 0-新增 1-修改 2-删除
      */
-    public static final String ADD = "1";
-    public static final String UPDATE = "2";
-    public static final String DELETE = "3";
+    public static final String ADD = "0";
+    public static final String UPDATE = "1";
+    public static final String DELETE = "2";
 
 }

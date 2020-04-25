@@ -64,7 +64,7 @@ private static final long serialVersionUID=1L;
     private LocalDateTime updateTime;
 
     /**
-     * 推送状态 1-已推 2-未推
+     * 推送状态 0-已推 1-未推
      */
     @TableField("STATUS")
     private String status;

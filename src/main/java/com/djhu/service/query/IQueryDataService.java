@@ -1,5 +1,6 @@
 package com.djhu.service.query;
 
+import com.djhu.elasticsearch.core.request.SearchRequest;
 import com.djhu.entity.dto.HIsInfoDto;
 
 import java.util.List;
@@ -14,6 +15,8 @@ public interface IQueryDataService<T> {
     List<T> findAll(String dbId);
 
     List<T> findAll(String dbId, List<HIsInfoDto> hIsInfo);
+
+    List<T> findAll(String dbId, SearchRequest searchRequest);
 
     T findBy(String dbId, HIsInfoDto hIsInfo);
 
