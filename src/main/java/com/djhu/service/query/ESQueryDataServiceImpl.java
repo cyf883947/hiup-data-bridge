@@ -59,22 +59,17 @@ public class ESQueryDataServiceImpl implements IQueryDataService<Map<String, Obj
 
     @Override
     public Map<String, Object> findById(String index, String type, String id) {
-        IdsQueryRequest searchRequest = new IdsQueryRequest();
-        searchRequest.setId(id);
-        searchRequest.setIndex(index);
-        searchRequest.setType(type);
-
-        List<Map<String, Object>> mapList;
+        DefaultGetDelRequest getDelRequest = new DefaultGetDelRequest(id);
+        getDelRequest.setIndex(index);
+        getDelRequest.setType(type);
         try {
-            log.error("根据id查询es患者数据请求为:{}",RequestUtils.request2josn(searchRequest));
-            mapList = elasticsearchTemplate.queryforList(searchRequest);
-            log.error("根据id查询es患者数据结果数量为:{} 条",mapList.size());
+            Map<String, Object> objectMap = elasticsearchTemplate.get(getDelRequest);
+            log.error("根据id查询es患者数据成功!!! id: {}, index:{}",id,index);
+            return objectMap;
         } catch (Exception e) {
-            e.printStackTrace();
-            log.error("根据id查询es患者数据失败!!! id : {},{}",id,e);
+            log.error("根据id查询es患者数据失败!!! id : {}",id,e);
             return null;
         }
-        return CollectionUtils.isNotEmpty(mapList)?mapList.get(0):null;
     }
 
     @Override
@@ -93,6 +88,8 @@ public class ESQueryDataServiceImpl implements IQueryDataService<Map<String, Obj
             ((AbstractRequest) searchRequest).setType(type);
             List<Map<String, Object>> mapList = getMapList(dbId, searchRequest);
             return mapList;
+        }else{
+            log.info("数据库异常!!! 数据库id：{}",dbId);
         }
         return Collections.emptyList();
     }
