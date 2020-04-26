@@ -47,6 +47,37 @@ public class ESQueryDataServiceImpl implements IQueryDataService<Map<String, Obj
     }
 
     @Override
+    public Map<String, Object> findById(String dbId, String id) {
+        String esSuffix = tbDbResourceService.getEsSuffixByDbId(dbId);
+        if (StringUtils.isNotEmpty(esSuffix)) {
+            String index = GlobalConstant.HIUP_PERSON_INDEX + "_" + esSuffix;
+            String type = GlobalConstant.HIUP_PERSON_TYPE;
+            return findById(index,type,id);
+        }
+        return null;
+    }
+
+    @Override
+    public Map<String, Object> findById(String index, String type, String id) {
+        IdsQueryRequest searchRequest = new IdsQueryRequest();
+        searchRequest.setId(id);
+        searchRequest.setIndex(index);
+        searchRequest.setType(type);
+
+        List<Map<String, Object>> mapList;
+        try {
+            log.error("根据id查询es患者数据请求为:{}",RequestUtils.request2josn(searchRequest));
+            mapList = elasticsearchTemplate.queryforList(searchRequest);
+            log.error("根据id查询es患者数据结果数量为:{} 条",mapList.size());
+        } catch (Exception e) {
+            e.printStackTrace();
+            log.error("根据id查询es患者数据失败!!! id : {},{}",id,e);
+            return null;
+        }
+        return CollectionUtils.isNotEmpty(mapList)?mapList.get(0):null;
+    }
+
+    @Override
     public List<Map<String, Object>> findAll(String dbId, List<HIsInfoDto> hIsInfos) {
         SearchRequest searchRequest = getSearchRequest(hIsInfos);
         return findAll(dbId, searchRequest);

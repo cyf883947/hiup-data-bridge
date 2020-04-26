@@ -20,4 +20,8 @@ public interface IQueryDataService<T> {
 
     T findBy(String dbId, HIsInfoDto hIsInfo);
 
+    T findById(String dbId,String id);
+
+    T findById(String index,String type,String id);
+
 }

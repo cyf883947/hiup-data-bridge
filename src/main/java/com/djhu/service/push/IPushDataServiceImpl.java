@@ -23,7 +23,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
@@ -34,7 +33,8 @@ import java.util.*;
  * @create 2020-04-24 18:16
  **/
 @Slf4j
-@Service
+//@Service
+@Deprecated
 public class IPushDataServiceImpl implements IPushDataService {
 
     /**
