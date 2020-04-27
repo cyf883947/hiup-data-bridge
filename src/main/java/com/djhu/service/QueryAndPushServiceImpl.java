@@ -1,32 +1,35 @@
 package com.djhu.service;
 
 import com.alibaba.dubbo.common.utils.CollectionUtils;
-import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.toolkit.IdWorker;
 import com.djhu.common.constant.GlobalConstant;
 import com.djhu.common.constant.PurchaserStatusConstant;
 import com.djhu.common.constant.PushStatusConstant;
+import com.djhu.common.util.URLUtils;
 import com.djhu.elasticsearch.core.ElasticsearchTemplate;
 import com.djhu.elasticsearch.core.handle.MsgHandle;
-import com.djhu.elasticsearch.core.request.*;
+import com.djhu.elasticsearch.core.request.MacthAllRequest;
+import com.djhu.elasticsearch.core.request.SearchRequest;
 import com.djhu.entity.MsgInfo;
 import com.djhu.entity.ResultEntity;
 import com.djhu.entity.atses.TbDbPurchaser;
 import com.djhu.entity.atses.TbDbPurchaserRecord;
-import com.djhu.entity.atses.TbPatientuniqueidBackups;
 import com.djhu.entity.scientper.TbDbResource;
 import com.djhu.service.push.ProvideAndSendData;
 import com.djhu.service.query.IQueryDataService;
+import com.google.common.base.Joiner;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @author cyf
@@ -39,12 +42,13 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
     /**
      * 数据库的可用状态 2-为已完成创建的数据库
      */
-    String DATASOURCE_ENABLED_STATUS = "2";
+    private static final String DATASOURCE_ENABLED_STATUS = "2";
     /**
      * 全院库的状态，推送数据不推送全院库数据
      */
-    String QUAN_YUAN_KU_STATUS = "1";
+    private static final String QUAN_YUAN_KU_STATUS = "1";
 
+    private static final String DEFAULT_BAK_ID = "-1";
 
     @Autowired
     ITbDbPurchaserService purchaserService;
@@ -61,9 +65,14 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
     @Autowired
     private ElasticsearchTemplate elasticsearchTemplate;
 
+    private AtomicInteger atomicInteger = new AtomicInteger(0);
+
+    @Value("${djhu.push.batchNumber:1000}")
+    private Integer batchNumber;
+
 
     @Override
-    public void dispose(String dbId, MsgInfo msgInfo, Integer pushType) throws Exception {
+    public void dispose(String dbId, MsgInfo msgInfo, Integer pushType) {
         List<String> dbIds = getAvailableDataSource(dbId);
         for (String resourceDbId : dbIds) {
 
@@ -73,35 +82,27 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
                 String purchasersId = entry.getKey();
                 String purchasersUrl = entry.getValue();
 
-                SearchRequest searchRequest = null;
-                if (ProvideAndSendData.ALL.equals(pushType)) {
-                    if (isFirst(purchasersId, resourceDbId)) {
-                        searchRequest = new MacthAllRequest();
-                    }
-                } else if (ProvideAndSendData.ADD.equals(pushType)) {
-                    if (isFirst(purchasersId, resourceDbId)) {
-                        searchRequest = new MacthAllRequest();
-                    } else {
-                        searchRequest = getSearchRequest(resourceDbId, purchasersId);
-                    }
-                } else {
+                if (!URLUtils.isConnection(purchasersUrl)) {
+                    log.info("厂商连接不可用!!! 厂商ID: {}, 厂商URL: {}", purchasersId, purchasersUrl);
+                    continue;
+                }
 
+                SearchRequest searchRequest = null;
+                if (ProvideAndSendData.ALL.equals(pushType) && isFirst(purchasersId, resourceDbId)) {
+                    searchRequest = new MacthAllRequest();
+                } else if (ProvideAndSendData.ADD.equals(pushType)) {
+                    searchRequest = new MacthAllRequest();
+                } else {
                     Object obj = queryDataService.findById(msgInfo.getIndex(), msgInfo.getType(), msgInfo.getId());
-                    if(obj == null){
+                    if (obj == null) {
                         return;
                     }
                     Map<String, Object> map = (Map<String, Object>) obj;
-                    String patientUniqueId = String.valueOf(map.getOrDefault("patient_unique_id", ""));
-
-                    EntityWrapper<TbPatientuniqueidBackups> wrapper = new EntityWrapper<>();
-                    wrapper.eq("DB_ID",resourceDbId);
-                    wrapper.eq("PATIENT_UNIQUE_ID",patientUniqueId);
-                    List<TbPatientuniqueidBackups> tbPatientuniqueidBackups = patientuniqueidBackupsService.selectList(wrapper);
-                    if(CollectionUtils.isNotEmpty(tbPatientuniqueidBackups) && isPushed(tbPatientuniqueidBackups.get(0).getId(),resourceDbId,purchasersId)){
-                        log.info("此条数据推送过，暂不处理!!!");
+                    boolean exist = exist(resourceDbId, purchasersId, map);
+                    if(exist){
+                        log.info("推送过，不处理!!!");
                     }else {
-                        // 推送单条记录
-                        pushDataAndUpdateStatus(purchasersId, purchasersUrl, map, resourceDbId);
+                        pushDataAndUpdateStatus(purchasersId, purchasersUrl, Arrays.asList(map), resourceDbId);
                     }
                 }
 
@@ -109,18 +110,48 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
                 if (searchRequest == null || StringUtils.isEmpty(esSuffix)) {
                     return;
                 }
-                ((MacthAllRequest) searchRequest).setIndex(GlobalConstant.HIUP_PERSON_INDEX + "_" + esSuffix);
+                ((MacthAllRequest) searchRequest).setIndex(GlobalConstant.HIUP_PERSON_INDEX+"_"+esSuffix);
                 ((MacthAllRequest) searchRequest).setType(GlobalConstant.HIUP_PERSON_TYPE);
-                long total = elasticsearchTemplate.count(searchRequest);
+                long total = 0;
+                try {
+                    total = elasticsearchTemplate.count(searchRequest);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
                 if (total > 0) {
+                    Set<String> patientKeySet = getPatientKeySet(resourceDbId, purchasersId);
+
+                    List<Map<String, Object>> mapList = new ArrayList<>();
                     long startTime = System.currentTimeMillis();
-                    elasticsearchTemplate.queryForHandle(searchRequest, new MsgHandle() {
-                        @Override
-                        public void handle(Object o) {
-                            Map<String, Object> map = (Map<String, Object>) o;
-                            pushDataAndUpdateStatus(purchasersId, purchasersUrl, map, resourceDbId);
-                        }
-                    });
+                    try {
+                        elasticsearchTemplate.queryForHandle(searchRequest, new MsgHandle() {
+                            @Override
+                            public void handle(Object o) {
+                                Map<String, Object> map = (Map<String, Object>) o;
+                                String hisId = String.valueOf(map.getOrDefault("his_id", ""));
+                                String hisDomainId = String.valueOf(map.getOrDefault("his_domain_id", ""));
+                                String hisVisitId = String.valueOf(map.getOrDefault("his_visit_id", ""));
+                                String hisVisitDomainId = String.valueOf(map.getOrDefault("his_visit_domain_id", ""));
+
+                                String patientKey = getPatientKey(hisId, hisDomainId, hisVisitId, hisVisitDomainId);
+                                if(!patientKeySet.contains(patientKey)){
+
+                                    int index = atomicInteger.incrementAndGet();
+                                    mapList.add(map);
+                                    if (index % batchNumber == 0) {
+                                        pushDataAndUpdateStatus(purchasersId, purchasersUrl, mapList, resourceDbId);
+                                        mapList.clear();
+                                    }
+                                }
+                            }
+                        });
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if(CollectionUtils.isNotEmpty(mapList)){
+                        pushDataAndUpdateStatus(purchasersId, purchasersUrl, mapList, resourceDbId);
+                        mapList.clear();
+                    }
                     long consume = System.currentTimeMillis() - startTime;
                     log.info("推送厂商数据成功!!! 推送数据量为：{} 条,耗时：{} ms", total, consume);
                 } else {
@@ -130,51 +161,41 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
         }
     }
 
-    private boolean isPushed(String id, String resourceDbId, String purchasersId) {
+    private boolean exist(String resourceDbId, String purchasersId, Map<String, Object> map) {
+        String hisId = String.valueOf(map.getOrDefault("his_id", ""));
+        String hisDomainId = String.valueOf(map.getOrDefault("his_domain_id", ""));
+        String hisVisitId = String.valueOf(map.getOrDefault("his_visit_id", ""));
+        String hisVisitDomainId = String.valueOf(map.getOrDefault("his_visit_domain_id", ""));
+
         EntityWrapper<TbDbPurchaserRecord> wrapper = new EntityWrapper<>();
-        wrapper.eq("BAK_ID",id);
-        wrapper.eq("EXTERNAL_DB_ID",purchasersId);
-        wrapper.eq("PURCHASER_ID",resourceDbId);
-        int count = purchaserRecordService.selectCount(wrapper);
-        return count>0;
+        wrapper.eq("DB_ID",resourceDbId);
+        wrapper.eq("PURCHASER_ID",purchasersId);
+        wrapper.eq("STATUS", PushStatusConstant.SUCCESS);
+        wrapper.eq("his_id",hisId);
+        wrapper.eq("his_domain_id",hisDomainId);
+        wrapper.eq("his_visit_id",hisVisitId);
+        wrapper.eq("his_visit_domain_id",hisVisitDomainId);
+        return purchaserRecordService.selectCount(wrapper) > 0;
     }
 
-    private SearchRequest getSearchRequest(String resourceDbId, String purchasersId) {
-        SearchRequest searchRequest = null;
-
-        EntityWrapper<TbDbPurchaserRecord> recordEntityWrapper = new EntityWrapper<>();
-        recordEntityWrapper.eq("EXTERNAL_DB_ID", resourceDbId);
-        recordEntityWrapper.eq("PURCHASER_ID", purchasersId);
-        recordEntityWrapper.setSqlSelect("BAK_ID");
-        List<TbDbPurchaserRecord> tbDbPurchaserRecords = purchaserRecordService.selectList(recordEntityWrapper);
-        Set<String> bakIdSet = new HashSet<>();
-        if (CollectionUtils.isNotEmpty(tbDbPurchaserRecords)) {
-            tbDbPurchaserRecords.forEach(record -> {
-                if (!bakIdSet.contains(record.getBakId())) {
-                    bakIdSet.add(record.getBakId());
-                }
-            });
-        }
-        EntityWrapper<TbPatientuniqueidBackups> wrapper = new EntityWrapper<>();
-        wrapper.eq("DB_ID", resourceDbId);
-        wrapper.notIn("ID",bakIdSet);
-        List<TbPatientuniqueidBackups> backups2 = patientuniqueidBackupsService.selectList(wrapper);
-        if (CollectionUtils.isNotEmpty(backups2)) {
-            List<SearchRequest> searchRequests = new LinkedList<>();
-            Set<String> pIdSet = new HashSet<>(backups2.size());
-            for (TbPatientuniqueidBackups backups : backups2) {
-                String patientUniqueId = backups.getPatientUniqueId();
-                if (!pIdSet.contains(patientUniqueId)) {
-                    TermSearchRequest termSearchRequest = new TermSearchRequest();
-                    termSearchRequest.setField("patient_unique_id.keyword");
-                    termSearchRequest.setValue(patientUniqueId);
-                    searchRequests.add(new ShouldSearchRequest(termSearchRequest));
-                    pIdSet.add(patientUniqueId);
-                }
+    private Set<String> getPatientKeySet(String resourceDbId, String purchasersId) {
+        EntityWrapper<TbDbPurchaserRecord> wrapper = new EntityWrapper<>();
+        wrapper.eq("DB_ID",resourceDbId);
+        wrapper.eq("PURCHASER_ID",purchasersId);
+        wrapper.eq("STATUS", PushStatusConstant.SUCCESS);
+        List<TbDbPurchaserRecord> records = purchaserRecordService.selectList(wrapper);
+        Set<String> filterSet = new HashSet<>(records.size());
+        for (TbDbPurchaserRecord record : records) {
+            String patientKey = getPatientKey(record.getHisId(),record.getHisDomainId(),record.getHisVisitId(),record.getHisVisitDomainId());
+            if(!filterSet.contains(patientKey) && StringUtils.isNotEmpty(patientKey)){
+                filterSet.add(patientKey);
             }
-            searchRequest = new BoolSearchRequest(searchRequests);
         }
-        return searchRequest;
+        return filterSet;
+    }
+
+    private String getPatientKey(String hisId,String hisDomainId,String hisVisitId,String hisVisitDomainId) {
+      return Joiner.on("_").useForNull("").join(hisId,hisDomainId,hisVisitId,hisVisitDomainId);
     }
 
     private boolean isFirst(String purchasersId, String resourceDbId) {
@@ -192,7 +213,7 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
      * @param dbId 数据库id
      * @return 所有可用的数据库id
      */
-    protected List<String> getAvailableDataSource(String dbId) {
+    public List<String> getAvailableDataSource(String dbId) {
         List<String> dbIds = new ArrayList<>();
         if (StringUtils.isEmpty(dbId)) {
             dbIds = tbDbResourceService.selectDbIds();
@@ -211,52 +232,60 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
     }
 
 
-    private void pushDataAndUpdateStatus(String purchasersId, String purchasersUrl, Map<String, Object> map, String resourceDbId) {
+    private void pushDataAndUpdateStatus(String purchasersId, String purchasersUrl, List<Map<String, Object>> mapList, String resourceDbId) {
         long startTime = System.currentTimeMillis();
-        String patientUniqueId = String.valueOf(map.getOrDefault("", ""));
-
         try {
-            log.info("开始调用厂商接口执行推送, 厂商id：{}，厂商地址：{}", purchasersId, purchasersUrl);
+//            log.info("开始调用厂商接口执行推送, 厂商id：{}，厂商地址：{}", purchasersId, purchasersUrl);
+//            log.info("推送患者编号patientUniqueId: {}",patientUniqueId);
 
-            Object o = JSON.toJSON(map);
-            JSONObject json = JSON.parseObject(o.toString());
+            JSONObject object = new JSONObject();
+            object.put("db_id", resourceDbId);
+            object.put("data", mapList);
+//            Object o = JSON.toJSON();
+//            JSONObject json = JSON.parseObject(o.toString());
 
-            ResponseEntity<ResultEntity> response = restTemplate.postForEntity(purchasersUrl, json, ResultEntity.class);
+            ResponseEntity<ResultEntity> response = restTemplate.postForEntity(purchasersUrl, object, ResultEntity.class);
             // 先设定一个模拟返回实体
             ResultEntity result = response.getBody();
-            log.info("返回结果为：{} ", result);
-
             long consume = System.currentTimeMillis() - startTime;
-            TbDbPurchaserRecord purchaserRecord = getTbDbPurchaserRecord(resourceDbId, purchasersId, PushStatusConstant.SUCCESS, consume, patientUniqueId);
-            purchaserRecordService.insert(purchaserRecord);
-        } catch (RestClientException e) {
+            log.info("返回结果为：{} 耗时: {} ms", result, consume);
+
+            for (Map<String, Object> objectMap : mapList) {
+                insertRecord(purchasersId, resourceDbId, result, objectMap);
+            }
+        } catch (Exception e) {
             log.error("推送厂商数据失败!!! 厂商id：{}, 厂商url: {}", purchasersId, purchasersUrl);
             long consume = System.currentTimeMillis() - startTime;
-            TbDbPurchaserRecord purchaserRecord = getTbDbPurchaserRecord(resourceDbId, purchasersId, PushStatusConstant.ERROR, consume, patientUniqueId);
-            purchaserRecordService.insert(purchaserRecord);
+            log.info("推送厂商数据失败!!! 耗时: {} ms,{}", consume, e);
             return;
         }
     }
 
-    /**
-     * 构建厂商推送数据记录实体
-     *
-     * @param dbId            当前推送的专科库id
-     * @param purchaserId     厂商id
-     * @param pushStatus      推送数据状态 0-成功 1-失败
-     * @param consume
-     * @param patientUniqueId 患者编号，记录哪条记录被推送
-     * @return
-     */
-    private TbDbPurchaserRecord getTbDbPurchaserRecord(String dbId, String purchaserId, String pushStatus, long consume, String patientUniqueId) {
+    private void insertRecord(String purchasersId, String resourceDbId, ResultEntity result, Map<String, Object> objectMap) {
+        String hisId = String.valueOf(objectMap.getOrDefault("his_id", ""));
+        String hisDomainId = String.valueOf(objectMap.getOrDefault("his_domain_id", ""));
+        String hisVisitId = String.valueOf(objectMap.getOrDefault("his_visit_id", ""));
+        String hisVisitDomainId = String.valueOf(objectMap.getOrDefault("his_visit_domain_id", ""));
+
         TbDbPurchaserRecord purchaserRecord = new TbDbPurchaserRecord();
-        // todo 改下这个bakId
-        purchaserRecord.setBakId(null);
-        purchaserRecord.setExternalDbId(dbId);
-        purchaserRecord.setConsume(String.valueOf(consume));
-        purchaserRecord.setPurchaserId(purchaserId);
-        purchaserRecord.setStatus(pushStatus);
-        return purchaserRecord;
+        purchaserRecord.setId(IdWorker.getIdStr());
+        purchaserRecord.setPurchaserId(purchasersId);
+        purchaserRecord.setHisId(hisId);
+        purchaserRecord.setHisVisitId(hisVisitId);
+        purchaserRecord.setHisDomainId(hisDomainId);
+        purchaserRecord.setHisVisitDomainId(hisVisitDomainId);
+        purchaserRecord.setDbId(resourceDbId);
+        if (result.getStatus() == 200) {
+            purchaserRecord.setStatus(PushStatusConstant.SUCCESS);
+        } else {
+            purchaserRecord.setStatus(PushStatusConstant.ERROR);
+        }
+        try {
+            purchaserRecordService.insert(purchaserRecord);
+        } catch (Exception e) {
+            log.error("保存记录失败!!! {}",e);
+            return;
+        }
     }
 
     /**
@@ -268,19 +297,19 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
     private Map<String, String> getPushPurchasersMap(String dbId) {
         Map<String, String> purchasersMap = getPurchasersMap();
 
-        List<TbDbPurchaserRecord> recordList = getPushPurchasersRecordList(dbId);
-        if (CollectionUtils.isNotEmpty(recordList)) {
-            Map<String, String> map = new HashMap<>(recordList.size());
-            for (TbDbPurchaserRecord record : recordList) {
-                String purchaserId = record.getPurchaserId();
-                String status = record.getStatus();
-                String url = purchasersMap.get(purchaserId);
-                if (!purchasersMap.containsKey(purchaserId) && PushStatusConstant.SUCCESS.equalsIgnoreCase(status)) {
-                    map.put(purchaserId, url);
-                }
-            }
-            purchasersMap = map;
-        }
+//        List<TbDbPurchaserRecord> recordList = getPushPurchasersRecordList(dbId);
+//        if (CollectionUtils.isNotEmpty(recordList)) {
+//            Map<String, String> map = new HashMap<>(recordList.size());
+//            for (TbDbPurchaserRecord record : recordList) {
+//                String purchaserId = record.getPurchaserId();
+//                String status = record.getStatus();
+//                String url = purchasersMap.get(purchaserId);
+//                if (!purchasersMap.containsKey(purchaserId) && PushStatusConstant.SUCCESS.equalsIgnoreCase(status)) {
+//                    map.put(purchaserId, url);
+//                }
+//            }
+//            purchasersMap = map;
+//        }
         log.info("当前需要推送厂商列表:{}, 数据库dbId: {}", purchasersMap, dbId);
         return purchasersMap;
     }
@@ -289,10 +318,11 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
         List<TbDbPurchaserRecord> tbDbPurchaserRecords = null;
         try {
             EntityWrapper<TbDbPurchaserRecord> wrapper = new EntityWrapper<>();
-            wrapper.eq("EXTERNAL_DB_ID", dbId);
+            wrapper.eq("DB_ID", dbId);
+            wrapper.setSqlSelect("distinct(PURCHASER_ID)", "status");
             tbDbPurchaserRecords = purchaserRecordService.selectList(wrapper);
         } catch (Exception e) {
-            log.error("查询专科库是否推送过失败!!! 数据库dbId : {},{}", dbId);
+            log.error("查询专科库是否推送过失败!!! 数据库dbId : {},{}", dbId, e);
         }
         return tbDbPurchaserRecords;
     }

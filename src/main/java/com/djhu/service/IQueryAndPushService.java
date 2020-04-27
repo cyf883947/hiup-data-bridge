@@ -9,6 +9,6 @@ import com.djhu.entity.MsgInfo;
  **/
 public interface IQueryAndPushService {
 
-    void dispose(String dbId, MsgInfo msgInfo, Integer pushType) throws Exception;
+    void dispose(String dbId, MsgInfo msgInfo, Integer pushType);
 
 }

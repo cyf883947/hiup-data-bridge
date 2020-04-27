@@ -16,27 +16,15 @@ import java.time.LocalDateTime;
  * </p>
  *
  * @author cyf
- * @since 2020-04-24
+ * @since 2020-04-27
  */
 @TableName("TB_DB_PURCHASER_RECORD")
 public class TbDbPurchaserRecord extends Model<TbDbPurchaserRecord> {
 
 private static final long serialVersionUID=1L;
 
-    @TableId(value = "ID",type = IdType.ID_WORKER_STR)
+    @TableId(value = "ID",type = IdType.ID_WORKER)
     private String id;
-
-    /**
-     * 当前数据库db_id 与scient_per.tb_db_resource 的db_id 关联
-     */
-    @TableField("BAK_ID")
-    private String bakId;
-
-    /**
-     * 对外提供查询db_id, 暂时和当前数据库db_id 保持一致
-     */
-    @TableField("EXTERNAL_DB_ID")
-    private String externalDbId;
 
     /**
      * 厂商id, 与表 tb_db_purchaser 的id关联
@@ -44,23 +32,29 @@ private static final long serialVersionUID=1L;
     @TableField("PURCHASER_ID")
     private String purchaserId;
 
-    /**
-     * 推送数据总数
-     */
-    @TableField("TOTAL")
-    private String total;
+    @TableField("HIS_ID")
+    private String hisId;
+
+    @TableField("HIS_VISIT_ID")
+    private String hisVisitId;
+
+    @TableField("HIS_DOMAIN_ID")
+    private String hisDomainId;
+
+    @TableField("HIS_VISIT_DOMAIN_ID")
+    private String hisVisitDomainId;
 
     /**
-     * 推送数据库index
+     * 专科库id
      */
-    @TableField("ES_INDEX")
-    private String esIndex;
+    @TableField("DB_ID")
+    private String dbId;
 
     /**
-     * 推送数据库type
+     * 专科库名称
      */
-    @TableField("ES_TYPE")
-    private String esType;
+    @TableField("DB_NAME")
+    private String dbName;
 
     /**
      * 耗时
@@ -80,12 +74,6 @@ private static final long serialVersionUID=1L;
     @TableField("STATUS")
     private String status;
 
-    /**
-     * 重试次数
-     */
-    @TableField("RETRY_COUNT")
-    private String retryCount;
-
     @TableField("CUSTOM0")
     private String custom0;
 
@@ -104,22 +92,6 @@ private static final long serialVersionUID=1L;
         this.id = id;
     }
 
-    public String getBakId() {
-        return bakId;
-    }
-
-    public void setBakId(String bakId) {
-        this.bakId = bakId;
-    }
-
-    public String getExternalDbId() {
-        return externalDbId;
-    }
-
-    public void setExternalDbId(String externalDbId) {
-        this.externalDbId = externalDbId;
-    }
-
     public String getPurchaserId() {
         return purchaserId;
     }
@@ -128,28 +100,52 @@ private static final long serialVersionUID=1L;
         this.purchaserId = purchaserId;
     }
 
-    public String getTotal() {
-        return total;
+    public String getHisId() {
+        return hisId;
     }
 
-    public void setTotal(String total) {
-        this.total = total;
+    public void setHisId(String hisId) {
+        this.hisId = hisId;
     }
 
-    public String getEsIndex() {
-        return esIndex;
+    public String getHisVisitId() {
+        return hisVisitId;
     }
 
-    public void setEsIndex(String esIndex) {
-        this.esIndex = esIndex;
+    public void setHisVisitId(String hisVisitId) {
+        this.hisVisitId = hisVisitId;
     }
 
-    public String getEsType() {
-        return esType;
+    public String getHisDomainId() {
+        return hisDomainId;
     }
 
-    public void setEsType(String esType) {
-        this.esType = esType;
+    public void setHisDomainId(String hisDomainId) {
+        this.hisDomainId = hisDomainId;
+    }
+
+    public String getHisVisitDomainId() {
+        return hisVisitDomainId;
+    }
+
+    public void setHisVisitDomainId(String hisVisitDomainId) {
+        this.hisVisitDomainId = hisVisitDomainId;
+    }
+
+    public String getDbId() {
+        return dbId;
+    }
+
+    public void setDbId(String dbId) {
+        this.dbId = dbId;
+    }
+
+    public String getDbName() {
+        return dbName;
+    }
+
+    public void setDbName(String dbName) {
+        this.dbName = dbName;
     }
 
     public String getConsume() {
@@ -182,14 +178,6 @@ private static final long serialVersionUID=1L;
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public String getRetryCount() {
-        return retryCount;
-    }
-
-    public void setRetryCount(String retryCount) {
-        this.retryCount = retryCount;
     }
 
     public String getCustom0() {
@@ -225,17 +213,17 @@ private static final long serialVersionUID=1L;
     public String toString() {
         return "TbDbPurchaserRecord{" +
         "id=" + id +
-        ", bakId=" + bakId +
-        ", externalDbId=" + externalDbId +
         ", purchaserId=" + purchaserId +
-        ", total=" + total +
-        ", esIndex=" + esIndex +
-        ", esType=" + esType +
+        ", hisId=" + hisId +
+        ", hisVisitId=" + hisVisitId +
+        ", hisDomainId=" + hisDomainId +
+        ", hisVisitDomainId=" + hisVisitDomainId +
+        ", dbId=" + dbId +
+        ", dbName=" + dbName +
         ", consume=" + consume +
         ", createdate=" + createdate +
         ", updatedate=" + updatedate +
         ", status=" + status +
-        ", retryCount=" + retryCount +
         ", custom0=" + custom0 +
         ", custom1=" + custom1 +
         ", custom2=" + custom2 +

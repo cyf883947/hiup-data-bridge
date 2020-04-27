@@ -3,7 +3,9 @@ package com.djhu.entity.atses;
 
 import com.baomidou.mybatisplus.activerecord.Model;
 import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.enums.IdType;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -21,7 +23,7 @@ public class TbPatientuniqueidBackups extends Model<TbPatientuniqueidBackups> {
 
 private static final long serialVersionUID=1L;
 
-    @TableField("ID")
+    @TableId(value = "ID",type = IdType.ID_WORKER)
     private String id;
 
     /**

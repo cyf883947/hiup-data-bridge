@@ -5,17 +5,17 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.djhu.entity.atses.TbDbPurchaserRecord">
         <id column="ID" property="id" />
-        <result column="CURRENT_DB_ID" property="bakId" />
-        <result column="EXTERNAL_DB_ID" property="externalDbId" />
         <result column="PURCHASER_ID" property="purchaserId" />
-        <result column="TOTAL" property="total" />
-        <result column="ES_INDEX" property="esIndex" />
-        <result column="ES_TYPE" property="esType" />
+        <result column="HIS_ID" property="hisId" />
+        <result column="HIS_VISIT_ID" property="hisVisitId" />
+        <result column="HIS_DOMAIN_ID" property="hisDomainId" />
+        <result column="HIS_VISIT_DOMAIN_ID" property="hisVisitDomainId" />
+        <result column="DB_ID" property="dbId" />
+        <result column="DB_NAME" property="dbName" />
         <result column="CONSUME" property="consume" />
         <result column="CREATEDATE" property="createdate" />
         <result column="UPDATEDATE" property="updatedate" />
         <result column="STATUS" property="status" />
-        <result column="RETRY_COUNT" property="retryCount" />
         <result column="CUSTOM0" property="custom0" />
         <result column="CUSTOM1" property="custom1" />
         <result column="CUSTOM2" property="custom2" />

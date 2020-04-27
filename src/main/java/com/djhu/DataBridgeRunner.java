@@ -4,6 +4,7 @@ import com.djhu.service.IQueryAndPushService;
 import com.djhu.service.push.ProvideAndSendData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -20,10 +21,18 @@ public class DataBridgeRunner implements CommandLineRunner {
 //    @Qualifier("createOrUpdateProduceAndSendData")
     private IQueryAndPushService queryAndPushService;
 
+    @Value("${auto.push.enabled:false")
+    private boolean autoPush;
+
     @Override
     public void run(String... args) throws Exception {
         log.info("项目启动成功!!!");
-        String dbId = "39f4cf7bf1c34e04ac07ba017458ba50";
-        queryAndPushService.dispose(dbId,null,ProvideAndSendData.ADD);
+        if(autoPush){
+            log.info("启动推送开始!!!");
+            long startTime = System.currentTimeMillis();
+//            queryAndPushService.dispose(dbId,null,ProvideAndSendData.ADD);
+            queryAndPushService.dispose(null,null, ProvideAndSendData.ALL);
+            log.info("启动推送结束!!! 耗时：{} ms",System.currentTimeMillis()-startTime);
+        }
     }
 }
