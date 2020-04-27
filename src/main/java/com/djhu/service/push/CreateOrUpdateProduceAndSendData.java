@@ -28,6 +28,7 @@ public class CreateOrUpdateProduceAndSendData extends AbstractProvideAndSendData
             // 直接获取数据
             resultList = queryDataService.findAll(dbId);
         }
+        log.info("新建或更新数据库时-需要推送的数据条数为: {} 条，数据库dbId: {}",resultList.size(),dbId);
         return resultList;
     }
 

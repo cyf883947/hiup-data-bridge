@@ -1,9 +1,9 @@
 package com.djhu;
 
+import com.djhu.service.IQueryAndPushService;
 import com.djhu.service.push.ProvideAndSendData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,12 +17,13 @@ import org.springframework.stereotype.Component;
 public class DataBridgeRunner implements CommandLineRunner {
 
     @Autowired
-    @Qualifier("fullProduceAndSendData")
-    private ProvideAndSendData pushDataService;
+//    @Qualifier("createOrUpdateProduceAndSendData")
+    private IQueryAndPushService queryAndPushService;
 
     @Override
     public void run(String... args) throws Exception {
         log.info("项目启动成功!!!");
-//        pushDataService.push(ProvideAndSendData.ALL);
+        String dbId = "39f4cf7bf1c34e04ac07ba017458ba50";
+        queryAndPushService.dispose(dbId,null,ProvideAndSendData.ADD);
     }
 }

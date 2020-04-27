@@ -104,22 +104,23 @@ public abstract class AbstractProvideAndSendData implements ProvideAndSendData {
         // 调用接口 执行推送
         long startTime = System.currentTimeMillis();
         long consume = 0;
-        ResultEntity result = null;
-        long total = 0;
+        long total = CollectionUtils.isNotEmpty(list) ? list.size() : 0;
+
         try {
+            log.info("开始调用厂商接口执行推送, 厂商id：{}，厂商地址：{}", purchasersId, purchasersUrl);
             ResponseEntity<ResultEntity> response = restTemplate.postForEntity(purchasersUrl, list, ResultEntity.class);
             // 先设定一个模拟返回实体
-            result = response.getBody();
-            total = CollectionUtils.isNotEmpty(list) ? list.size() : 0;
-            consume = System.currentTimeMillis() - startTime;
-            log.info("推送厂商数据成功!!! 厂商id: {} 推送数据量为：{} 条", purchasersId, total);
-            log.info("返回结果为：{} 耗时：{} ms", result, consume);
+            ResultEntity result = response.getBody();
+            log.info("返回结果为：{} ", result);
+
+            afterDispose(result, purchasersId, dbId, total, consume);
         } catch (RestClientException e) {
             log.error("推送厂商数据失败!!! 厂商id：{}, 厂商url: {}", purchasersId, purchasersUrl);
             // todo 推送失败的怎么处理
         }
 
-        afterDispose(result, purchasersId, dbId, total, consume);
+        consume = System.currentTimeMillis() - startTime;
+        log.info("推送厂商数据成功!!! 推送数据量为：{} 条,耗时：{} ms", total, consume);
     }
 
     private void afterDispose(ResultEntity result, String purchasersId, String dbId, long total, long consume) {
@@ -135,26 +136,25 @@ public abstract class AbstractProvideAndSendData implements ProvideAndSendData {
     private void doAfterDispose(ResultEntity result, String purchasersId, String dbId, long total, long consume) {
         // 成功后
         if (result.getStatus() == 200) {
-            /*
-            1. 删除 bak 表中状态为1的数据
-            2. 设置 bak 表中状态为2的数据改为1
-            3. 记录 record 厂商推送记录到表
-             */
             EntityWrapper<TbPatientuniqueidBackups> backupsEntityWrapper = new EntityWrapper<>();
-            backupsEntityWrapper.eq("DB_ID", dbId);
-            backupsEntityWrapper.eq("STATUS", PushStatusConstant.PUSHED);
-            patientuniqueidBackupsService.delete(backupsEntityWrapper);
+//            backupsEntityWrapper.eq("DB_ID", dbId);
+//            backupsEntityWrapper.eq("STATUS", PushStatusConstant.PUSHED);
+//            patientuniqueidBackupsService.delete(backupsEntityWrapper);
+//            log.info("删除 tb_patientuniqueid_bak 表中状态为0的数据成功!!!,数据库dbId : {}",dbId);
 
-            backupsEntityWrapper.eq("STATUS", PushStatusConstant.NOT_PUSHED);
+            backupsEntityWrapper.eq("STATUS", PushStatusConstant.NOT_PUSHED).or().isNull("STATUS");
             List<TbPatientuniqueidBackups> backupsList = patientuniqueidBackupsService.selectList(backupsEntityWrapper);
             patientuniqueidBackupsService.insertOrUpdateBatch(backupsList);
+            log.info("更新 tb_patientuniqueid_bak 表中状态为1的数据为状态0成功!!!,数据库dbId : {}", dbId);
 
             TbDbPurchaserRecord purchaserRecord = getTbDbPurchaserRecord(dbId, purchasersId, PushStatusConstant.SUCCESS, total, consume);
             purchaserRecordService.insert(purchaserRecord);
+            log.info("保存推送成功记录日志到 TB_DB_PURCHASER_RECORD中成功!!!");
         } else {
             // 记录 record 厂商推送失败状态，执行重试
             TbDbPurchaserRecord purchaserRecord = getTbDbPurchaserRecord(dbId, purchasersId, PushStatusConstant.ERROR, total, consume);
             purchaserRecordService.insert(purchaserRecord);
+            log.info("保存推送失败记录日志到 TB_DB_PURCHASER_RECORD中成功!!!");
         }
     }
 
@@ -171,7 +171,7 @@ public abstract class AbstractProvideAndSendData implements ProvideAndSendData {
      */
     private TbDbPurchaserRecord getTbDbPurchaserRecord(String dbId, String purchaserId, String pushStatus, long total, long consume) {
         TbDbPurchaserRecord purchaserRecord = new TbDbPurchaserRecord();
-        purchaserRecord.setCurrentDbId(dbId);
+        purchaserRecord.setBakId("");
         purchaserRecord.setExternalDbId(dbId);
         purchaserRecord.setConsume(String.valueOf(consume));
         purchaserRecord.setPurchaserId(purchaserId);
@@ -216,6 +216,7 @@ public abstract class AbstractProvideAndSendData implements ProvideAndSendData {
                 dbIds.add(dbId);
             }
         }
+        log.info("所有可用数据库ids：{}", dbIds);
         return dbIds;
     }
 
@@ -242,6 +243,7 @@ public abstract class AbstractProvideAndSendData implements ProvideAndSendData {
             }
             purchasersMap = map;
         }
+        log.info("当前需要推送厂商列表:{}, 数据库dbId: {}", purchasersMap, dbId);
         return purchasersMap;
     }
 
@@ -252,7 +254,6 @@ public abstract class AbstractProvideAndSendData implements ProvideAndSendData {
      */
     private Map<String, String> getPurchasersMap() {
         EntityWrapper<TbDbPurchaser> purchaserEntityWrapper = new EntityWrapper<>();
-        purchaserEntityWrapper.eq("STATUS", PurchaserStatusConstant.ENABLED);
         purchaserEntityWrapper.eq("STATUS", PurchaserStatusConstant.ENABLED);
         // 厂商推送地址不能为空
         purchaserEntityWrapper.isNotNull("CUSTOM0");
@@ -266,6 +267,7 @@ public abstract class AbstractProvideAndSendData implements ProvideAndSendData {
                 purchasersMap.put(id, url);
             }
         }
+        log.info("当前可用厂商列表:{}", purchasersMap);
         return purchasersMap;
     }
 
@@ -273,13 +275,14 @@ public abstract class AbstractProvideAndSendData implements ProvideAndSendData {
     protected SearchRequest getSearchRequest(String dbId) {
         SearchRequest searchRequest = null;
         EntityWrapper<TbPatientuniqueidBackups> wrapper = new EntityWrapper<>();
-        wrapper.eq("DB_ID", dbId);
-        wrapper.eq("STATUS", PushStatusConstant.PUSHED);
-        List<TbPatientuniqueidBackups> backups1 = patientuniqueidBackupsService.selectList(wrapper);
+//        wrapper.eq("DB_ID", dbId);
+//        wrapper.eq("STATUS", PushStatusConstant.PUSHED);
+//        List<TbPatientuniqueidBackups> backups1 = patientuniqueidBackupsService.selectList(wrapper);
 
-        wrapper.eq("STATUS", PushStatusConstant.NOT_PUSHED);
+        wrapper.eq("DB_ID", dbId);
+        wrapper.eq("STATUS", PushStatusConstant.NOT_PUSHED).or().isNull("STATUS");
         List<TbPatientuniqueidBackups> backups2 = patientuniqueidBackupsService.selectList(wrapper);
-        backups2.removeAll(backups1);
+//        backups2.removeAll(backups1);
 
         if (CollectionUtils.isNotEmpty(backups2)) {
             List<SearchRequest> searchRequests = new LinkedList<>();

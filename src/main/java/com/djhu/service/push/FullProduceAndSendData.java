@@ -19,6 +19,7 @@ public class FullProduceAndSendData extends AbstractProvideAndSendData {
     protected List produce(String dbId, Integer pushType, MsgInfo msgInfo) {
         // 查当前库es数据 todo 考虑数据量问题如何推送
         List list = queryDataService.findAll(dbId);
+        log.info("程序启动-首次需要推送的数据条数为: {} 条，数据库dbId: {}",list.size(),dbId);
         return list;
     }
 

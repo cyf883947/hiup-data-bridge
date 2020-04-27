@@ -23,14 +23,14 @@ public class TbDbPurchaserRecord extends Model<TbDbPurchaserRecord> {
 
 private static final long serialVersionUID=1L;
 
-    @TableId(value = "ID",type = IdType.ID_WORKER)
+    @TableId(value = "ID",type = IdType.ID_WORKER_STR)
     private String id;
 
     /**
      * 当前数据库db_id 与scient_per.tb_db_resource 的db_id 关联
      */
-    @TableField("CURRENT_DB_ID")
-    private String currentDbId;
+    @TableField("BAK_ID")
+    private String bakId;
 
     /**
      * 对外提供查询db_id, 暂时和当前数据库db_id 保持一致
@@ -104,12 +104,12 @@ private static final long serialVersionUID=1L;
         this.id = id;
     }
 
-    public String getCurrentDbId() {
-        return currentDbId;
+    public String getBakId() {
+        return bakId;
     }
 
-    public void setCurrentDbId(String currentDbId) {
-        this.currentDbId = currentDbId;
+    public void setBakId(String bakId) {
+        this.bakId = bakId;
     }
 
     public String getExternalDbId() {
@@ -225,7 +225,7 @@ private static final long serialVersionUID=1L;
     public String toString() {
         return "TbDbPurchaserRecord{" +
         "id=" + id +
-        ", currentDbId=" + currentDbId +
+        ", bakId=" + bakId +
         ", externalDbId=" + externalDbId +
         ", purchaserId=" + purchaserId +
         ", total=" + total +

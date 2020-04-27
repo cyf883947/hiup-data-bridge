@@ -5,7 +5,7 @@
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.djhu.entity.atses.TbDbPurchaserRecord">
         <id column="ID" property="id" />
-        <result column="CURRENT_DB_ID" property="currentDbId" />
+        <result column="CURRENT_DB_ID" property="bakId" />
         <result column="EXTERNAL_DB_ID" property="externalDbId" />
         <result column="PURCHASER_ID" property="purchaserId" />
         <result column="TOTAL" property="total" />

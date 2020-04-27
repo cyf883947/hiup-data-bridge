@@ -1,6 +1,5 @@
 package com.djhu.service.push;
 
-import com.alibaba.dubbo.common.utils.CollectionUtils;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.djhu.elasticsearch.core.request.SearchRequest;
 import com.djhu.entity.MsgInfo;
@@ -37,20 +36,13 @@ public class IncrementProduceAndSendData extends AbstractProvideAndSendData {
 
         if (existRecord(dbId)) {
             // 存在记录，查询当前此条记录是否推送过
-            String hisId = String.valueOf(map.getOrDefault("his_id", ""));
-            String hisDomainId = String.valueOf(map.getOrDefault("his_domain_id", ""));
-            String hisVisitId = String.valueOf(map.getOrDefault("his_visit_id", ""));
-            String hisVisitDomainId = String.valueOf(map.getOrDefault("his_visit_domain_id", ""));
+            String patientUniqueId = String.valueOf(map.getOrDefault("patient_unique_id", ""));
 
-            // todo 改下这个表结构
             EntityWrapper<TbPatientuniqueidBackups> wrapper = new EntityWrapper<>();
-            wrapper.eq("his_id", hisId);
-            wrapper.eq("his_domain_id", hisDomainId);
-            wrapper.eq("his_visit_id", hisVisitId);
-            wrapper.eq("his_visit_domain_id", hisVisitDomainId);
+            wrapper.eq("his_id", patientUniqueId);
             wrapper.eq("db_id", dbId);
-            List<TbPatientuniqueidBackups> tbPatientuniqueidBackups = patientuniqueidBackupsService.selectList(wrapper);
-            if (CollectionUtils.isEmpty(tbPatientuniqueidBackups) || tbPatientuniqueidBackups.get(0) == null) {
+            int count = patientuniqueidBackupsService.selectCount(wrapper);
+            if (count == 0) {
                 resultList = Arrays.asList(map);
             } else {
                 log.debug("此条记录已推送过，暂不处理!!!");
@@ -66,6 +58,7 @@ public class IncrementProduceAndSendData extends AbstractProvideAndSendData {
             resultList = queryDataService.findAll(dbId, searchRequest);
             resultList.add(map);
         }
+        log.info("增量-需要推送的数据条数为: {} 条，数据库dbId: {}",resultList.size(),dbId);
         return resultList;
     }
 
