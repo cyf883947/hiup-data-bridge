@@ -1,4 +1,4 @@
-package com.djhu.service;
+package com.djhu.service.push;
 
 import com.alibaba.dubbo.common.utils.CollectionUtils;
 import com.alibaba.fastjson.JSONObject;
@@ -17,7 +17,10 @@ import com.djhu.entity.ResultEntity;
 import com.djhu.entity.atses.TbDbPurchaser;
 import com.djhu.entity.atses.TbDbPurchaserRecord;
 import com.djhu.entity.scientper.TbDbResource;
-import com.djhu.service.push.ProvideAndSendData;
+import com.djhu.service.ITbDbPurchaserRecordService;
+import com.djhu.service.ITbDbPurchaserService;
+import com.djhu.service.ITbDbResourceService;
+import com.djhu.service.ITbPatientuniqueidBackupsService;
 import com.djhu.service.query.IQueryDataService;
 import com.google.common.base.Joiner;
 import lombok.extern.slf4j.Slf4j;
@@ -88,9 +91,9 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
                 }
 
                 SearchRequest searchRequest = null;
-                if (ProvideAndSendData.ALL.equals(pushType) && isFirst(purchasersId, resourceDbId)) {
+                if (ALL.equals(pushType) && isFirst(purchasersId, resourceDbId)) {
                     searchRequest = new MacthAllRequest();
-                } else if (ProvideAndSendData.ADD.equals(pushType)) {
+                } else if (CREATE_OR_UPDATE.equals(pushType)) {
                     searchRequest = new MacthAllRequest();
                 } else {
                     Object obj = queryDataService.findById(msgInfo.getIndex(), msgInfo.getType(), msgInfo.getId());
@@ -128,10 +131,11 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
                             @Override
                             public void handle(Object o) {
                                 Map<String, Object> map = (Map<String, Object>) o;
-                                String hisId = String.valueOf(map.getOrDefault("his_id", ""));
-                                String hisDomainId = String.valueOf(map.getOrDefault("his_domain_id", ""));
-                                String hisVisitId = String.valueOf(map.getOrDefault("his_visit_id", ""));
-                                String hisVisitDomainId = String.valueOf(map.getOrDefault("his_visit_domain_id", ""));
+                                HisInfoEntity hisInfoEntity = new HisInfoEntity(map).invoke();
+                                String hisId = hisInfoEntity.getHisId();
+                                String hisDomainId = hisInfoEntity.getHisDomainId();
+                                String hisVisitId = hisInfoEntity.getHisVisitId();
+                                String hisVisitDomainId = hisInfoEntity.getHisVisitDomainId();
 
                                 String patientKey = getPatientKey(hisId, hisDomainId, hisVisitId, hisVisitDomainId);
                                 if(!patientKeySet.contains(patientKey)){
@@ -162,10 +166,11 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
     }
 
     private boolean exist(String resourceDbId, String purchasersId, Map<String, Object> map) {
-        String hisId = String.valueOf(map.getOrDefault("his_id", ""));
-        String hisDomainId = String.valueOf(map.getOrDefault("his_domain_id", ""));
-        String hisVisitId = String.valueOf(map.getOrDefault("his_visit_id", ""));
-        String hisVisitDomainId = String.valueOf(map.getOrDefault("his_visit_domain_id", ""));
+        HisInfoEntity hisInfoEntity = new HisInfoEntity(map).invoke();
+        String hisId = hisInfoEntity.getHisId();
+        String hisDomainId = hisInfoEntity.getHisDomainId();
+        String hisVisitId = hisInfoEntity.getHisVisitId();
+        String hisVisitDomainId = hisInfoEntity.getHisVisitDomainId();
 
         EntityWrapper<TbDbPurchaserRecord> wrapper = new EntityWrapper<>();
         wrapper.eq("DB_ID",resourceDbId);
@@ -262,10 +267,11 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
     }
 
     private void insertRecord(String purchasersId, String resourceDbId, ResultEntity result, Map<String, Object> objectMap) {
-        String hisId = String.valueOf(objectMap.getOrDefault("his_id", ""));
-        String hisDomainId = String.valueOf(objectMap.getOrDefault("his_domain_id", ""));
-        String hisVisitId = String.valueOf(objectMap.getOrDefault("his_visit_id", ""));
-        String hisVisitDomainId = String.valueOf(objectMap.getOrDefault("his_visit_domain_id", ""));
+        HisInfoEntity hisInfoEntity = new HisInfoEntity(objectMap).invoke();
+        String hisId = hisInfoEntity.getHisId();
+        String hisDomainId = hisInfoEntity.getHisDomainId();
+        String hisVisitId = hisInfoEntity.getHisVisitId();
+        String hisVisitDomainId = hisInfoEntity.getHisVisitDomainId();
 
         TbDbPurchaserRecord purchaserRecord = new TbDbPurchaserRecord();
         purchaserRecord.setId(IdWorker.getIdStr());
@@ -297,19 +303,19 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
     private Map<String, String> getPushPurchasersMap(String dbId) {
         Map<String, String> purchasersMap = getPurchasersMap();
 
-//        List<TbDbPurchaserRecord> recordList = getPushPurchasersRecordList(dbId);
-//        if (CollectionUtils.isNotEmpty(recordList)) {
-//            Map<String, String> map = new HashMap<>(recordList.size());
-//            for (TbDbPurchaserRecord record : recordList) {
-//                String purchaserId = record.getPurchaserId();
-//                String status = record.getStatus();
-//                String url = purchasersMap.get(purchaserId);
-//                if (!purchasersMap.containsKey(purchaserId) && PushStatusConstant.SUCCESS.equalsIgnoreCase(status)) {
-//                    map.put(purchaserId, url);
-//                }
-//            }
-//            purchasersMap = map;
-//        }
+        List<TbDbPurchaserRecord> recordList = getPushPurchasersRecordList(dbId);
+        if (CollectionUtils.isNotEmpty(recordList)) {
+            Map<String, String> map = new HashMap<>(recordList.size());
+            for (TbDbPurchaserRecord record : recordList) {
+                String purchaserId = record.getPurchaserId();
+                String status = record.getStatus();
+                String url = purchasersMap.get(purchaserId);
+                if (!purchasersMap.containsKey(purchaserId) && PushStatusConstant.SUCCESS.equalsIgnoreCase(status)) {
+                    map.put(purchaserId, url);
+                }
+            }
+            purchasersMap = map;
+        }
         log.info("当前需要推送厂商列表:{}, 数据库dbId: {}", purchasersMap, dbId);
         return purchasersMap;
     }
@@ -352,4 +358,39 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
     }
 
 
+    private class HisInfoEntity {
+        private Map<String, Object> map;
+        private String hisId;
+        private String hisDomainId;
+        private String hisVisitId;
+        private String hisVisitDomainId;
+
+        public HisInfoEntity(Map<String, Object> map) {
+            this.map = map;
+        }
+
+        public String getHisId() {
+            return hisId;
+        }
+
+        public String getHisDomainId() {
+            return hisDomainId;
+        }
+
+        public String getHisVisitId() {
+            return hisVisitId;
+        }
+
+        public String getHisVisitDomainId() {
+            return hisVisitDomainId;
+        }
+
+        public HisInfoEntity invoke() {
+            hisId = String.valueOf(map.getOrDefault("his_id", ""));
+            hisDomainId = String.valueOf(map.getOrDefault("his_domain_id", ""));
+            hisVisitId = String.valueOf(map.getOrDefault("his_visit_id", ""));
+            hisVisitDomainId = String.valueOf(map.getOrDefault("his_visit_domain_id", ""));
+            return this;
+        }
+    }
 }

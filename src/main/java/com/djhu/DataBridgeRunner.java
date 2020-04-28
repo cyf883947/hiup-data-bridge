@@ -1,7 +1,6 @@
 package com.djhu;
 
-import com.djhu.service.IQueryAndPushService;
-import com.djhu.service.push.ProvideAndSendData;
+import com.djhu.service.push.IQueryAndPushService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,7 +30,7 @@ public class DataBridgeRunner implements CommandLineRunner {
             log.info("启动推送开始!!!");
             long startTime = System.currentTimeMillis();
 //            queryAndPushService.dispose(dbId,null,ProvideAndSendData.ADD);
-            queryAndPushService.dispose(null,null, ProvideAndSendData.ALL);
+            queryAndPushService.dispose(null,null, IQueryAndPushService.ALL);
             log.info("启动推送结束!!! 耗时：{} ms",System.currentTimeMillis()-startTime);
         }
     }
