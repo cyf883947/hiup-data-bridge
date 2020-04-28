@@ -23,7 +23,7 @@
         <setting name="defaultExecutorType" value="SIMPLE"/>
         <!-- 设置超时时间，它决定驱动等待一个数据库响应的时间 -->
         <setting name="defaultStatementTimeout" value="25000"/>
-        <!--<setting name="logImpl" value="STDOUT_LOGGING"/>-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
         <!--<setting name="logPrefix" value="com.eps.dao.*"/> -->
         <!-- 当值为空的时候，返回的map里依旧有键值对-->
         <setting name="callSettersOnNulls" value="true"/>

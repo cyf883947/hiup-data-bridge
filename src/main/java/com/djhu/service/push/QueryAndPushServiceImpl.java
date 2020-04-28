@@ -80,7 +80,7 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
         for (String resourceDbId : dbIds) {
 
             // 取所有厂商
-            Map<String, String> purchasersMap = getPushPurchasersMap(resourceDbId);
+            Map<String, String> purchasersMap = getPushPurchasersMap(resourceDbId,pushType);
             for (Map.Entry<String, String> entry : purchasersMap.entrySet()) {
                 String purchasersId = entry.getKey();
                 String purchasersUrl = entry.getValue();
@@ -298,23 +298,25 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
      * 获取需要推送的厂商地址
      *
      * @param dbId
+     * @param pushType
      * @return
      */
-    private Map<String, String> getPushPurchasersMap(String dbId) {
+    private Map<String, String> getPushPurchasersMap(String dbId, Integer pushType) {
         Map<String, String> purchasersMap = getPurchasersMap();
-
-        List<TbDbPurchaserRecord> recordList = getPushPurchasersRecordList(dbId);
-        if (CollectionUtils.isNotEmpty(recordList)) {
-            Map<String, String> map = new HashMap<>(recordList.size());
-            for (TbDbPurchaserRecord record : recordList) {
-                String purchaserId = record.getPurchaserId();
-                String status = record.getStatus();
-                String url = purchasersMap.get(purchaserId);
-                if (!purchasersMap.containsKey(purchaserId) && PushStatusConstant.SUCCESS.equalsIgnoreCase(status)) {
-                    map.put(purchaserId, url);
+        if(ALL.equals(pushType)){
+            List<TbDbPurchaserRecord> recordList = getPushPurchasersRecordList(dbId);
+            if (CollectionUtils.isNotEmpty(recordList)) {
+                Map<String, String> map = new HashMap<>(recordList.size());
+                for (TbDbPurchaserRecord record : recordList) {
+                    String purchaserId = record.getPurchaserId();
+                    String status = record.getStatus();
+                    String url = purchasersMap.get(purchaserId);
+                    if (!purchasersMap.containsKey(purchaserId) && PushStatusConstant.SUCCESS.equalsIgnoreCase(status)) {
+                        map.put(purchaserId, url);
+                    }
                 }
+                purchasersMap = map;
             }
-            purchasersMap = map;
         }
         log.info("当前需要推送厂商列表:{}, 数据库dbId: {}", purchasersMap, dbId);
         return purchasersMap;

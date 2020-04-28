@@ -14,5 +14,6 @@ public class UpdateDataInfo {
     private String index;
     private String type;
     private String id;
+    private MsgInfo msgInfo;
 
 }

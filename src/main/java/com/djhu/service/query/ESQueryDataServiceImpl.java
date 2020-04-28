@@ -64,7 +64,7 @@ public class ESQueryDataServiceImpl implements IQueryDataService<Map<String, Obj
         getDelRequest.setType(type);
         try {
             Map<String, Object> objectMap = elasticsearchTemplate.get(getDelRequest);
-            log.error("根据id查询es患者数据成功!!! id: {}, index:{}",id,index);
+            log.info("根据id查询es患者数据成功!!! id: {}, index:{}",id,index);
             return objectMap;
         } catch (Exception e) {
             log.error("根据id查询es患者数据失败!!! id : {}",id,e);
