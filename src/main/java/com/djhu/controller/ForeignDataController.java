@@ -8,6 +8,7 @@ import com.djhu.common.aspect.LogTypeEnum;
 import com.djhu.entity.dto.HIsInfoDto;
 import com.djhu.entity.dto.UnifiedDto;
 import com.djhu.service.query.IQueryDataService;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +25,19 @@ import org.springframework.web.bind.annotation.RestController;
  * @author cyf
  * @since 2020-04-24
  */
+@Slf4j
 @RestController
 public class ForeignDataController {
 
     @Autowired
     private IQueryDataService queryDataService;
+
+    @RequestMapping(value = "/start" ,method = RequestMethod.GET, produces = "application/json;charset=UTF-8")
+    public Result start(){
+        log.info("ForeignDataController.start......");
+        return ResultGenerator.genSuccessResult();
+    }
+
 
     @ApiLog(value = "科研对外查询",logType = LogTypeEnum.SEARCH)
     @RequestMapping(value = "/data/query" ,method = RequestMethod.POST, produces = "application/json;charset=UTF-8")

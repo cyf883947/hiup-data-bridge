@@ -3,12 +3,13 @@ package com.djhu.entity;
 import lombok.Data;
 
 /**
- * @Author zw
- * @DATE 2019/4/26 17:45
- * @VERSION 1.0.0
+ * @author cyf
+ * @description
+ * @create 2020-04-28 15:54
  **/
 @Data
-public class MsgInfo {
+public class UpdateDataInfo {
+    private String dbId;
     private String uniqueueId;
     private String index;
     private String type;

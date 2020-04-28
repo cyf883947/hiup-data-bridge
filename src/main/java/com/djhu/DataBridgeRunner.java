@@ -17,10 +17,9 @@ import org.springframework.stereotype.Component;
 public class DataBridgeRunner implements CommandLineRunner {
 
     @Autowired
-//    @Qualifier("createOrUpdateProduceAndSendData")
     private IQueryAndPushService queryAndPushService;
 
-    @Value("${auto.push.enabled:false")
+    @Value("${auto.push.enabled:false}")
     private boolean autoPush;
 
     @Override
@@ -29,7 +28,6 @@ public class DataBridgeRunner implements CommandLineRunner {
         if(autoPush){
             log.info("启动推送开始!!!");
             long startTime = System.currentTimeMillis();
-//            queryAndPushService.dispose(dbId,null,ProvideAndSendData.ADD);
             queryAndPushService.dispose(null,null, IQueryAndPushService.ALL);
             log.info("启动推送结束!!! 耗时：{} ms",System.currentTimeMillis()-startTime);
         }
