@@ -50,7 +50,8 @@ public class TbDbResourceServiceImpl extends ServiceImpl<TbDbResourceMapper, TbD
         // 创建成功的库
         wrapper.eq("status",CREATED);
         // 非全院库
-        wrapper.ne("HOSPITAL_FLAG","1");
+//        wrapper.ne("HOSPITAL_FLAG","1");
+        wrapper.isNull("HOSPITAL_FLAG");
         wrapper.setSqlSelect("db_id");
         List<TbDbResource> tbDbResources = this.selectList(wrapper);
 

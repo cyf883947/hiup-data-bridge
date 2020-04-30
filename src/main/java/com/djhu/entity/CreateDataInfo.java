@@ -10,4 +10,8 @@ import lombok.Data;
 @Data
 public class CreateDataInfo {
     private String dbId;
+    private String host;
+    private int port;
+    private String collection;
+    private String dbname;
 }

@@ -19,4 +19,6 @@ public interface IQueryAndPushService {
 
     void dispose(String dbId, MsgInfo msgInfo, Integer pushType);
 
+    boolean running();
+
 }

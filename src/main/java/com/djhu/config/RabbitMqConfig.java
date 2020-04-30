@@ -1,7 +1,12 @@
 package com.djhu.config;
 
+import com.djhu.config.callback.ConfirmCallBack;
+import com.djhu.config.callback.ReturnCallBack;
 import com.djhu.config.properties.RabbitProperties;
-import org.springframework.amqp.core.*;
+import org.springframework.amqp.core.Binding;
+import org.springframework.amqp.core.BindingBuilder;
+import org.springframework.amqp.core.Queue;
+import org.springframework.amqp.core.TopicExchange;
 import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -30,21 +35,32 @@ public class RabbitMqConfig {
         factory.setUsername(rabbitProperties.getUsername());
         factory.setPassword(rabbitProperties.getPassword());
         factory.setVirtualHost(rabbitProperties.getVirtualHost());
-//        // 消息发送到交换机确认机制 是否确认回调
-//        factory.setPublisherConfirms(true);
-//        // 消息发送到交换机确认机制 是否返回回调
-//        factory.setPublisherReturns(true);
+        // 消息发送到交换机确认机制 是否确认回调
+        factory.setPublisherConfirms(true);
+        // 消息发送到交换机确认机制 是否返回回调
+        factory.setPublisherReturns(true);
+        try {
+            factory.afterPropertiesSet();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return factory;
     }
+
+    @Autowired
+    private ReturnCallBack returnCallBack;
+
+    @Autowired
+    private ConfirmCallBack confirmCallBack;
 
     @Bean
     public RabbitTemplate rabbitTemplate(){
         RabbitTemplate rabbitTemplate = new RabbitTemplate(connectionFactory());
         rabbitTemplate.setExchange(rabbitProperties.getExchange());
         // #设置为 true 后 消费者在消息没有被路由到合适队列情况下会被return监听，而不会自动删除
-//        rabbitTemplate.setMandatory(true);
-//        rabbitTemplate.setConfirmCallback(confirmCallBack);
-//        rabbitTemplate.setReturnCallback(returnCallBack);
+        rabbitTemplate.setMandatory(true);
+        rabbitTemplate.setConfirmCallback(confirmCallBack);
+        rabbitTemplate.setReturnCallback(returnCallBack);
         return rabbitTemplate;
     }
 

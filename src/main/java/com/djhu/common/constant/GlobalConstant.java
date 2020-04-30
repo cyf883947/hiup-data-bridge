@@ -9,5 +9,6 @@ public class GlobalConstant {
 
     public static final String HIUP_PERSON_INDEX = "hiup_research_person";
     public static final String HIUP_PERSON_TYPE = "hiup_research_person";
+    public static final Integer DEFAUT_TIME_OUT = 60000;
 
 }

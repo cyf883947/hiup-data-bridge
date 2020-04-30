@@ -41,8 +41,8 @@ public class UpdateDataReceive {
         MsgInfo msgInfo = new MsgInfo();
         BeanUtils.copyProperties(updateDataInfo,msgInfo);
         // 通过 uniqueId 去查 dbId
-        String dbId = getDbIdByIndex(updateDataInfo.getIndex());
-        queryAndPushService.dispose(dbId,msgInfo, IQueryAndPushService.ADD);
+//        String dbId = getDbIdByIndex(updateDataInfo.getIndex());
+//        queryAndPushService.dispose(dbId,msgInfo, IQueryAndPushService.INCREMENT);
     }
 
     public static void main(String[] args) {
