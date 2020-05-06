@@ -1,7 +1,6 @@
 package com.djhu;
 
 import com.djhu.service.ProcessingData;
-import com.djhu.service.push.IQueryAndPushService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,9 +15,6 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class DataBridgeRunner implements CommandLineRunner {
-
-    @Autowired
-    private IQueryAndPushService queryAndPushService;
     @Autowired
     private ProcessingData processingData;
 
@@ -31,11 +27,30 @@ public class DataBridgeRunner implements CommandLineRunner {
 //        if(autoPush){
 //            log.info("启动推送开始!!!");
 //            long startTime = System.currentTimeMillis();
-//            queryAndPushService.dispose("105a3294d3f84ac68c8be693657aafac",null, IQueryAndPushService.CREATE_OR_UPDATE);
 //            log.info("启动推送结束!!! 耗时：{} ms",System.currentTimeMillis()-startTime);
 //        }
+
+        // 测试全部数据库
 //        processingData.handle();
-//        processingData.handle("123", DataConst.CREATE_OR_UPDATE);
-//        processingData.handle("123","hiup_research_person_9846",null, DataConst.INCREMENT);
+        // 测试建库、更新库-0 ，参数正常
+//        processingData.handle("fe69b58c711e491daec6b9acdf099662", DataConst.CREATE_OR_UPDATE);
+        // 测试建库、更新库-1 ，参数 dbId 异常
+//        processingData.handle("556", DataConst.CREATE_OR_UPDATE);
+
+//        // 测试增量-0 ，index 参数错误
+//        processingData.handle("AXGboNtSL0SMcvORFmGB","hiup_research_person_100","hiup_research_person",DataConst.INCREMENT);
+//        // 测试增量-1 ，id  参数错误
+//        processingData.handle("AXGboNtSL0SMcvORFm","hiup_research_person_10005","hiup_research_person",DataConst.INCREMENT);
+//        // 测试增量-2 ，参数正常
+//        processingData.handle("AXGboNtSL0SMcvORFmGB","hiup_research_person_10005","hiup_research_person",DataConst.INCREMENT);
+
+          // 测试查询mongoDb 数据库
+//        CreateDataInfo creaetEntity = new CreateDataInfo();
+//        creaetEntity.setDbId("44d97c82f05d4986ac5ae645457db003");
+//        creaetEntity.setHost("192.168.130.192");
+//        creaetEntity.setPort(27017);
+//        creaetEntity.setCollection("research_1575874104717_16");
+//        creaetEntity.setDbname("data_col");
+//        processingData.handle("44d97c82f05d4986ac5ae645457db003", DataConst.CREATE_OR_UPDATE,creaetEntity);
     }
 }

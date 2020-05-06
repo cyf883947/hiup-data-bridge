@@ -4,7 +4,6 @@ import com.alibaba.dubbo.common.utils.CollectionUtils;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.toolkit.IdWorker;
-import com.djhu.common.constant.DataConst;
 import com.djhu.common.constant.GlobalConstant;
 import com.djhu.common.constant.PurchaserStatusConstant;
 import com.djhu.common.constant.PushStatusConstant;
@@ -18,7 +17,6 @@ import com.djhu.entity.MsgInfo;
 import com.djhu.entity.ResultEntity;
 import com.djhu.entity.atses.TbDbPurchaser;
 import com.djhu.entity.atses.TbDbPurchaserRecord;
-import com.djhu.entity.scientper.TbDbResource;
 import com.djhu.service.ITbDbPurchaserRecordService;
 import com.djhu.service.ITbDbPurchaserService;
 import com.djhu.service.ITbDbResourceService;
@@ -209,19 +207,7 @@ public class QueryAndPushServiceImpl implements IQueryAndPushService {
      * @return 所有可用的数据库id
      */
     public List<String> getAvailableDataSource(String dbId) {
-        List<String> dbIds = new ArrayList<>();
-        if (StringUtils.isEmpty(dbId)) {
-            dbIds = tbDbResourceService.selectDbIds();
-        } else {
-            // 判断该数据库是否可用或者是全院库
-            TbDbResource tbDbResource = tbDbResourceService.selectById(dbId);
-            if (tbDbResource == null || !DataConst.DATASOURCE_ENABLED_STATUS.equalsIgnoreCase(tbDbResource.getStatus())
-                    || DataConst.QUAN_YUAN_KU_STATUS.equalsIgnoreCase(tbDbResource.getHospitalFlag())) {
-                log.info("数据库不可用或是全院库!!! 数据库id：{}", dbId);
-            } else {
-                dbIds.add(dbId);
-            }
-        }
+        List<String> dbIds = tbDbResourceService.selectDbIds(dbId);
         log.info("所有可用数据库ids：{}", dbIds);
         return dbIds;
     }

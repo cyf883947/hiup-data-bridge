@@ -1,7 +1,6 @@
 package com.djhu.service.oom;
 
 import com.alibaba.dubbo.common.utils.CollectionUtils;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.djhu.common.constant.GlobalConstant;
 import com.djhu.elasticsearch.core.ElasticsearchTemplate;
 import com.djhu.elasticsearch.core.RequestUtils;
@@ -9,7 +8,6 @@ import com.djhu.elasticsearch.core.request.AbstractRequest;
 import com.djhu.elasticsearch.core.request.DefaultGetDelRequest;
 import com.djhu.elasticsearch.core.request.MacthAllRequest;
 import com.djhu.elasticsearch.core.request.SearchRequest;
-import com.djhu.entity.scientper.TbDbResource;
 import com.djhu.service.Filter;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -89,10 +87,13 @@ public class DefaultPrepareData extends AbstractPrepareData {
         }
         searchRequest.setIndex(index);
         searchRequest.setType(type);
-        String dbId = getDbIdByIndex(index);
+        String dbId = tbDbResourceService.getDbIdByIndex(index);
         try {
             Map<String, Object> objectMap = elasticsearchTemplate.get(searchRequest);
             log.info("查询 es 结果 耗时:{} ms",System.currentTimeMillis()-startTime);
+            if(objectMap == null){
+                log.info("查询 es  结果为空!!!");
+            }
             if ((filter == null)) {
                 return objectMap;
             }
@@ -104,18 +105,4 @@ public class DefaultPrepareData extends AbstractPrepareData {
         }
         return null;
     }
-
-    private static final String PREFIX = "person_";
-    private String getDbIdByIndex(String index) {
-        String esSufffix = index.substring(index.indexOf(PREFIX)+PREFIX.length());
-        EntityWrapper<TbDbResource> wrapper = new EntityWrapper<>();
-        wrapper.eq("ES_SUFFIX",esSufffix);
-        TbDbResource tbDbResource = tbDbResourceService.selectOne(wrapper);
-        if(tbDbResource != null){
-            String resourceDbId = tbDbResource.getDbId();
-            return resourceDbId;
-        }
-        return null;
-    }
-
 }

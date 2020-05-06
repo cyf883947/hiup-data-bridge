@@ -2,11 +2,8 @@ package com.djhu.service.receive;
 
 import com.alibaba.dubbo.common.json.JSON;
 import com.alibaba.dubbo.common.json.ParseException;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.djhu.entity.MsgInfo;
 import com.djhu.entity.UpdateDataInfo;
-import com.djhu.entity.scientper.TbDbResource;
-import com.djhu.service.ITbDbResourceService;
 import com.djhu.service.push.IQueryAndPushService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -17,21 +14,17 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author cyf
- * @description
+ * @description     增量更新监听队列
  * @create 2020-04-27 18:34
  **/
 
 @Slf4j
 @Component
-//监听的队列名称
 @RabbitListener(queues = "${djhu.rabbit.updateQueue}")
 public class UpdateDataReceive {
 
     @Autowired
     IQueryAndPushService queryAndPushService;
-
-    @Autowired
-    private ITbDbResourceService tbDbResourceService;
 
     @RabbitHandler
     public void process(String testMessage) throws ParseException {
@@ -51,20 +44,5 @@ public class UpdateDataReceive {
         String esSufffix = index.substring(index.indexOf(prefix)+prefix.length());
         System.out.println(esSufffix);
     }
-
-    private static final String PREFIX = "person_";
-
-    private String getDbIdByIndex(String index) {
-        String esSufffix = index.substring(index.indexOf(PREFIX)+PREFIX.length());
-        EntityWrapper<TbDbResource> wrapper = new EntityWrapper<>();
-        wrapper.eq("ES_SUFFIX",esSufffix);
-        TbDbResource tbDbResource = tbDbResourceService.selectOne(wrapper);
-        if(tbDbResource != null){
-            String resourceDbId = tbDbResource.getDbId();
-            return resourceDbId;
-        }
-        return null;
-    }
-
 
 }

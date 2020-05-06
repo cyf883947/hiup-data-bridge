@@ -45,13 +45,31 @@ public class TbDbResourceServiceImpl extends ServiceImpl<TbDbResourceMapper, TbD
     }
 
     @Override
-    public List<String> selectDbIds() {
+    public String getDbIdByIndex(String index) {
+        if(StringUtils.isNotEmpty(index)){
+            String esSufffix = index.substring(index.indexOf(PREFIX) + PREFIX.length());
+            EntityWrapper<TbDbResource> wrapper = new EntityWrapper<>();
+            wrapper.eq("ES_SUFFIX", esSufffix);
+            TbDbResource tbDbResource = selectOne(wrapper);
+            if (tbDbResource != null) {
+                String resourceDbId = tbDbResource.getDbId();
+                return resourceDbId;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public List<String> selectDbIds(String dbId) {
         EntityWrapper<TbDbResource> wrapper = new EntityWrapper<>();
         // 创建成功的库
         wrapper.eq("status",CREATED);
+        if(StringUtils.isNotEmpty(dbId)){
+            wrapper.eq("DB_ID",dbId);
+        }
         // 非全院库
-//        wrapper.ne("HOSPITAL_FLAG","1");
         wrapper.isNull("HOSPITAL_FLAG");
+        wrapper.isNotNull("ES_SUFFIX");
         wrapper.setSqlSelect("db_id");
         List<TbDbResource> tbDbResources = this.selectList(wrapper);
 

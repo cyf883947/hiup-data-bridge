@@ -15,12 +15,11 @@ import org.springframework.stereotype.Component;
 
 /**
  * @author cyf
- * @description
+ * @description    新建或更新数据库监听队列
  * @create 2020-04-27 18:32
  **/
 @Slf4j
 @Component
-//监听的队列名称
 @RabbitListener(queues = "${djhu.rabbit.createQueue}")
 public class CreateDataReceive {
 

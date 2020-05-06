@@ -15,9 +15,12 @@ import java.util.List;
  * @since 2020-04-24
  */
 public interface ITbDbResourceService extends IService<TbDbResource> {
+    String PREFIX = "person_";
 
     String getEsSuffixByDbId(String dbId);
 
-    List<String> selectDbIds();
+    String getDbIdByIndex(String index);
+
+    List<String> selectDbIds(String dbId);
 
 }

@@ -9,7 +9,7 @@ import java.util.List;
  **/
 public interface ISendData {
 
-    void send(List list,String url);
+    void send(List list, String url,String dbId,String purchasersId);
 
 
 }
